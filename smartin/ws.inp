@@ -1,0 +1,234 @@
+[TITLE]
+WDS_Kematen
+
+[JUNCTIONS]
+;ID              	Elev        	Demand      	Pattern         
+ J1              	156.5       	0.069666413 	Demand          	;
+ J3              	156.261     	0.0029648659999999996	Demand          	;
+ J2              	160.34      	0.004027144 	Demand          	;
+ J7              	156.448     	0.004471081 	Demand          	;
+ J8              	156.293     	0.026985033 	Demand          	;
+ J9              	158.223     	0.00152207  	Demand          	;
+ J10             	157.66      	0.014253551000000001	Demand          	;
+ J11             	157.368     	0.010353247 	Demand          	;
+ J12             	157.24      	0.004027144 	Demand          	;
+ J13             	156.979     	0.004455226 	Demand          	;
+ J14             	156.887     	0.005707763 	Demand          	;
+ J15             	156.737     	0.008640918000000001	Demand          	;
+ J16             	158.598     	0.011209411 	Demand          	;
+ J4              	157.598     	0.040477549 	Demand          	;
+ J5              	156.812     	0.160372273 	Demand          	;
+ J6              	156.66      	0.002901446 	Demand          	;
+ J17             	206         	0           	                	;
+ spring          	207         	-0.75       	Spring          	;
+
+[RESERVOIRS]
+;ID              	Head        	Pattern         
+ River           	206         	                	;
+
+[TANKS]
+;ID              	Elevation   	InitLevel   	MinLevel    	MaxLevel    	Diameter    	MinVol      	VolCurve
+ 64              	202.37      	3           	0           	4           	3           	0           	                	;
+
+[PIPES]
+;ID              	Node1           	Node2           	Length      	Diameter    	Roughness   	MinorLoss   	Status
+ P11             	J8              	J3              	27.405      	100         	0.4         	0           	Open  	;
+ P1              	J1              	J6              	10.047      	100         	0.4         	0           	Open  	;
+ P12             	J3              	J1              	14.649      	100         	0.4         	0           	Open  	;
+ P3              	J10             	J9              	36.556      	100         	0.4         	0           	Open  	;
+ P4              	J11             	J10             	18.96       	100         	0.4         	0           	Open  	;
+ P5              	J12             	J11             	8.274       	100         	0.4         	0           	Open  	;
+ P6              	J13             	J12             	16.944      	100         	0.4         	0           	Open  	;
+ P7              	J14             	J13             	5.941       	100         	0.4         	0           	Open  	;
+ P8              	J15             	J14             	9.747       	100         	0.4         	0           	Open  	;
+ P9              	J5              	J4              	49.374      	100         	0.4         	0           	Open  	;
+ P10             	J6              	J5              	9.581       	100         	0.4         	0           	Open  	;
+ P13             	J17             	River           	10          	100         	0.4         	0           	Open  	;
+ P15             	spring          	64              	10          	100         	0.4         	0           	Open  	;
+ P16             	64              	J17             	10          	100         	0.4         	0           	CV    	;
+ P17             	J13             	J3              	78.774      	100         	0.4         	0           	Open  	;
+ P18             	J15             	J7              	20.501      	100         	0.4         	0           	Open  	;
+ P19             	J9              	J4              	89.58       	100         	0.4         	0           	Open  	;
+ P20             	J9              	J2              	114.205     	100         	0.4         	0           	Open  	;
+ P21             	J16             	J9              	36.276      	100         	0.4         	0           	Open  	;
+ P22             	64              	J16             	261.221     	100         	0.4         	0           	Open  	;
+
+[PUMPS]
+;ID              	Node1           	Node2           	Parameters
+
+[VALVES]
+;ID              	Node1           	Node2           	Diameter    	Type	Setting     	MinorLoss   
+
+[TAGS]
+
+[DEMANDS]
+;Junction        	Demand      	Pattern         	Category
+ J1              	0.069666413 	Demand          	;  
+ J1              	0.0058032122029 	Losses          	;  
+ J3              	0.0029648659999999996 	Demand          	;  
+ J3              	0.0002469733378 	Losses          	;  
+ J2              	0.004027144 	Demand          	;  
+ J2              	0.00033546109519999996 	Losses          	;  
+ J7              	0.004471081 	Demand          	;  
+ J7              	0.0003724410473 	Losses          	;  
+ J8              	0.026985033 	Demand          	;  
+ J8              	0.0022478532488999997 	Losses          	;  
+ J9              	0.00152207  	Demand          	;  
+ J9              	0.000126788431 	Losses          	;  
+ J10             	0.014253551000000001 	Demand          	;  
+ J10             	0.0011873207983 	Losses          	;  
+ J11             	0.010353247 	Demand          	;  
+ J11             	0.0008624254750999999 	Losses          	;  
+ J12             	0.004027144 	Demand          	;  
+ J12             	0.00033546109519999996 	Losses          	;  
+ J13             	0.004455226 	Demand          	;  
+ J13             	0.00037112032579999995 	Losses          	;  
+ J14             	0.005707763 	Demand          	;  
+ J14             	0.0004754566579 	Losses          	;  
+ J15             	0.008640918000000001 	Demand          	;  
+ J15             	0.0007197884694000001 	Losses          	;  
+ J16             	0.011209411 	Demand          	;  
+ J16             	0.0009337439363 	Losses          	;  
+ J4              	0.040477549 	Demand          	;  
+ J4              	0.0033717798317 	Losses          	;  
+ J5              	0.160372273 	Demand          	;  
+ J5              	0.0133590103409 	Losses          	;  
+ J6              	0.002901446 	Demand          	;  
+ J6              	0.00024169045179999997 	Losses          	;  
+
+[STATUS]
+;ID              	Status/Setting
+
+[PATTERNS]
+;ID              	Multipliers
+;Daily Demand
+ Demand          	0.53        	0.48        	.46         	.48         	.55         	.74         
+ Demand          	1.44        	1.58        	1.49        	1.39        	1.27        	1.15        
+ Demand          	1.13        	1.1         	1.15        	1.1         	1.115       	1.1         
+ Demand          	1.18        	1.22        	1.08        	0.91        	0.7         	.6          
+;Irrigation
+ Irrigation      	0           	0           	0           	0           	0           	0           
+ Irrigation      	0           	0           	0           	0           	0           	0           
+ Irrigation      	0           	0           	0           	0           	0           	0           
+ Irrigation      	0           	0           	0           	0           	1           	0           
+;Water Losses constant over day
+ Losses          	1           	1           	1           	1           	1           	1           
+ Losses          	1           	1           	1           	1           	1           	1           
+ Losses          	1           	1           	1           	1           	1           	1           
+ Losses          	1           	1           	1           	1           	1           	1           
+;Spring
+ Spring          	1           	1           	1           	1           	1           	1           
+ Spring          	1           	1           	1           	1           	1           	1           
+ Spring          	1           	1           	1           	1           	1           	1           
+ Spring          	1           	1           	1           	1           	1           	1           
+
+[CURVES]
+;ID              	X-Value     	Y-Value
+
+[CONTROLS]
+
+
+[RULES]
+
+
+[ENERGY]
+ Global Efficiency  	75
+ Global Price       	0
+ Demand Charge      	0
+
+[EMITTERS]
+;Junction        	Coefficient
+
+[QUALITY]
+;Node            	InitQual
+ 64              	33
+
+[SOURCES]
+;Node            	Type        	Quality     	Pattern
+
+[REACTIONS]
+;Type     	Pipe/Tank       	Coefficient
+
+
+[REACTIONS]
+ Order Bulk            	1
+ Order Tank            	1
+ Order Wall            	1
+ Global Bulk           	0
+ Global Wall           	0
+ Limiting Potential    	0
+ Roughness Correlation 	0
+
+[MIXING]
+;Tank            	Model
+
+[TIMES]
+ Duration           	168:00 
+ Hydraulic Timestep 	1:00 
+ Quality Timestep   	0:05 
+ Pattern Timestep   	1:00 
+ Pattern Start      	0:00 
+ Report Timestep    	1:00 
+ Report Start       	0:00 
+ Start ClockTime    	0:00
+ Statistic          	NONE
+
+[REPORT]
+ Status             	Yes
+ Summary            	No
+ Page               	0
+
+[OPTIONS]
+ Units              	LPS
+ Headloss           	D-W
+ Specific Gravity   	1.000000
+ Viscosity          	1.000000
+ Trials             	40
+ Accuracy           	0.00100
+ CHECKFREQ          	2
+ MAXCHECK           	10
+ DAMPLIMIT          	0
+ Unbalanced         	Continue 10
+ Pattern            	Demand
+ Demand Multiplier  	1
+ Emitter Exponent   	0.50
+ Quality            	Age mg/L
+ Diffusivity        	1
+ Tolerance          	0.01
+
+[COORDINATES]
+;Node            	X-Coord         	Y-Coord
+ J1              	96544.75        	80397.40        
+ J3              	96550.51        	80410.87        
+ J2              	96483.12        	80229.16        
+ J7              	96483.39        	80435.67        
+ J8              	96526.03        	80423.19        
+ J9              	96432.29        	80331.43        
+ J10             	96452.09        	80362.16        
+ J11             	96461.39        	80378.68        
+ J12             	96465.44        	80385.90        
+ J13             	96472.31        	80401.38        
+ J14             	96474.72        	80406.81        
+ J15             	96478.67        	80415.72        
+ J16             	96396.73        	80324.26        
+ J4              	96512.59        	80336.35        
+ J5              	96535.61        	80380.03        
+ J6              	96540.07        	80388.51        
+ J17             	96192.38        	80174.16        
+ spring          	96081.91        	80183.77        
+ River           	96232.98        	80140.00        
+ 64              	96161.06        	80211.58        
+
+[VERTICES]
+;Link            	X-Coord         	Y-Coord
+
+[LABELS]
+;X-Coord           Y-Coord          Label & Anchor Node
+
+[BACKDROP]
+ DIMENSIONS     	96058.48        	80125.22        	96573.94        	80450.45        
+ UNITS          	None
+ FILE           	
+ OFFSET         	0.00            	0.00            
+
+[END]

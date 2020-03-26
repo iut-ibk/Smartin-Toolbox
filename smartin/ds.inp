@@ -1,0 +1,2534 @@
+[TITLE]
+;;Project Title/Notes
+
+[OPTIONS]
+;;Option             Value
+FLOW_UNITS           LPS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+ALLOW_PONDING        NO
+SKIP_STEADY_STATE    YES
+
+START_DATE           05/31/2015
+START_TIME           23:59:00
+REPORT_START_DATE    05/31/2015
+REPORT_START_TIME    23:59:00
+END_DATE             07/01/2015
+END_TIME             00:00:00
+SWEEP_START          01/01
+SWEEP_END            12/31
+DRY_DAYS             0
+REPORT_STEP          00:00:30
+WET_STEP             00:00:30
+DRY_STEP             00:01:00
+ROUTING_STEP         0:00:30 
+
+INERTIAL_DAMPING     PARTIAL
+NORMAL_FLOW_LIMITED  BOTH
+FORCE_MAIN_EQUATION  D-W
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         1.14
+MAX_TRIALS           8
+HEAD_TOLERANCE       0.0015
+SYS_FLOW_TOL         5
+LAT_FLOW_TOL         5
+MINIMUM_STEP         0.5
+THREADS              4
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]
+;;Name           Format    Interval SCF      Source    
+;;-------------- --------- ------ ------ ----------
+Raingage         VOLUME    0:01     1.0      FILE       "rain2015.dat"   STA01      MM   
+
+[SUBCATCHMENTS]
+;;Name           Rain Gage        Outlet           Area     %Imperv  Width    %Slope   CurbLen  SnowPack        
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- -------- ----------------
+S1_G_R_          Raingage         not_connected    0.02771  0        16.646   4.661    0                        
+S1_H_R_          Raingage         I20              0.03228  100      33.428   4.661    0                        
+S1_A_R_          Raingage         not_connected    0.013518 100      11.627   4.661    0                        
+S10_G_R_         Raingage         not_connected    0.035451 0        18.829   5.151    0                        
+S10_H_R_         Raingage         I20              0.029344 100      31.872   5.151    0                        
+S10_A_R_         Raingage         not_connected    0.001916 100      4.377    5.151    0                        
+S11_G_R_         Raingage         not_connected    0.048278 0        21.972   8.66     0                        
+S11_H_R_         Raingage         I23              0.016669 100      24.02    8.66     0                        
+S11_A_R_         Raingage         not_connected    6.3E-05  100      0.794    8.66     0                        
+S12_G_R_         Raingage         not_connected    0.050995 0        22.582   6.206    0                        
+S12_H_R_         Raingage         not_connected    0        100      0        6.206    0                        
+S12_A_R_         Raingage         not_connected    0        100      0        6.206    0                        
+S13_G_R_         Raingage         not_connected    0.050931 0        22.568   4.402    0                        
+S13_H_R_         Raingage         not_connected    0        100      0        4.402    0                        
+S13_A_R_         Raingage         not_connected    0        100      0        4.402    0                        
+S14_G_M_         Raingage         not_connected    0.051003 0        22.584   4.376    0                        
+S14_H_M_         Raingage         not_connected    0        100      0        4.376    0                        
+S14_A_M_         Raingage         not_connected    0        100      0        4.376    0                        
+S15_G_R_         Raingage         not_connected    0.052004 0        22.804   4.453    0                        
+S15_H_R_         Raingage         not_connected    0        100      0        4.453    0                        
+S15_A_R_         Raingage         not_connected    0        100      0        4.453    0                        
+S16_G_R_         Raingage         not_connected    0.051995 0        22.803   5.544    0                        
+S16_H_R_         Raingage         not_connected    0        100      0        5.544    0                        
+S16_A_R_         Raingage         not_connected    0        100      0        5.544    0                        
+S17_G_R_         Raingage         not_connected    0.052007 0        22.805   7.315    0                        
+S17_H_R_         Raingage         not_connected    0        100      0        7.315    0                        
+S17_A_R_         Raingage         not_connected    0        100      0        7.315    0                        
+S18_G_R_         Raingage         not_connected    0.051996 0        22.803   5.802    0                        
+S18_H_R_         Raingage         not_connected    0        100      0        5.802    0                        
+S18_A_R_         Raingage         not_connected    0        100      0        5.802    0                        
+S19_G_R_         Raingage         not_connected    0.056327 0        23.733   4.827    0                        
+S19_H_R_         Raingage         I18              0.027112 100      30.634   4.827    0                        
+S19_A_R_         Raingage         not_connected    0.009979 100      9.99     4.827    0                        
+S2_G_R_          Raingage         not_connected    0.017044 0        13.055   6.502    0                        
+S2_H_R_          Raingage         I23              0.035615 100      35.112   6.502    0                        
+S2_A_R_          Raingage         not_connected    0.014965 100      12.233   6.502    0                        
+S20_G_R_         Raingage         not_connected    0.0567   0        23.812   4.141    0                        
+S20_H_R_         Raingage         not_connected    0        100      0        4.141    0                        
+S20_A_R_         Raingage         not_connected    0        100      0        4.141    0                        
+S21_G_R_         Raingage         not_connected    0.020488 0        14.313   6.461    0                        
+S21_H_R_         Raingage         I10              0.016905 100      24.192   6.461    0                        
+S21_A_R_         Raingage         not_connected    0.002105 100      4.589    6.461    0                        
+S22_G_R_         Raingage         not_connected    0.011759 0        10.844   3.928    0                        
+S22_H_R_         Raingage         I11              0.014638 100      22.51    3.928    0                        
+S22_A_R_         Raingage         not_connected    0.001305 100      3.612    3.928    0                        
+S23_G_R_         Raingage         not_connected    0.011271 0        10.616   4.499    0                        
+S23_H_R_         Raingage         I11              0.014564 100      22.452   4.499    0                        
+S23_A_R_         Raingage         not_connected    0.001845 100      4.296    4.499    0                        
+S24_G_R_         Raingage         not_connected    0.020339 0        14.261   3.746    0                        
+S24_H_R_         Raingage         I11              0.019409 100      25.92    3.746    0                        
+S24_A_R_         Raingage         not_connected    0.002023 100      4.498    3.746    0                        
+S25_G_R_         Raingage         not_connected    0.032489 0        18.025   6.495    0                        
+S25_H_R_         Raingage         I13              0.028175 100      31.23    6.495    0                        
+S25_A_R_         Raingage         not_connected    0.002609 100      5.108    6.495    0                        
+S26_G_R_         Raingage         not_connected    0.058594 0        24.206   4.38     0                        
+S26_H_R_         Raingage         not_connected    0.000144 100      1.2      4.38     0                        
+S26_A_R_         Raingage         not_connected    3.6E-05  100      0.6      4.38     0                        
+S27_G_M_         Raingage         not_connected    0.241255 0        49.118   6.523    0                        
+S27_H_M_         Raingage         I8               0.187841 100      93.11    6.523    0                        
+S27_A_M_         Raingage         not_connected    0.141967 100      37.678   6.523    0                        
+S28_G_R_         Raingage         not_connected    0.211379 0        45.976   6.732    0                        
+S28_H_R_         Raingage         I13              0.23297  100      48.267   6.732    0                        
+S28_A_R_         Raingage         not_connected    0.074969 100      27.38    6.732    0                        
+S29_G_R_         Raingage         not_connected    0.266    5.467    5.359    4.482    0                        
+S29_H_R_         Raingage         I13              0.027034 25       30.54    0.5      0                        
+S29_A_R_         Raingage         not_connected    0.09499  5.467    31.985   4.482    0                        
+S3_G_R_          Raingage         not_connected    0.043555 0        20.87    5.81     0                        
+S3_H_R_          Raingage         I18              0.028213 100      31.25    5.81     0                        
+S3_A_R_          Raingage         not_connected    0.006491 100      8.057    5.81     0                        
+S30_G_R_         Raingage         not_connected    0.00279  0        5.282    4.099    0                        
+S30_H_R_         Raingage         I13              0.008694 100      17.348   4.099    0                        
+S30_A_R_         Raingage         not_connected    0.004518 100      6.722    4.099    0                        
+S31_G_R_         Raingage         not_connected    0.004174 0        6.461    6.773    0                        
+S31_H_R_         Raingage         I13              0.008585 100      17.24    6.773    0                        
+S31_A_R_         Raingage         not_connected    0.003211 100      5.667    6.773    0                        
+S32_G_R_         Raingage         not_connected    0.004312 0        6.567    5.884    0                        
+S32_H_R_         Raingage         I13              0.008655 100      17.31    5.884    0                        
+S32_A_R_         Raingage         not_connected    0.003016 100      5.492    5.884    0                        
+S33_G_R_         Raingage         not_connected    0.003295 0        5.741    4.647    0                        
+S33_H_R_         Raingage         I13              0.009355 100      17.994   4.647    0                        
+S33_A_R_         Raingage         not_connected    0.003431 100      5.857    4.647    0                        
+S35_G_R_         Raingage         not_connected    0.00027  0        1.643    3.839    0                        
+S34_G_R_         Raingage         not_connected    0.002248 0        4.742    4.517    0                        
+S34_H_R_         Raingage         I6               0.008668 100      17.322   4.517    0                        
+S34_A_R_         Raingage         not_connected    0.005063 100      7.116    4.517    0                        
+S35_H_R_         Raingage         I6               0.008984 100      17.636   3.839    0                        
+S35_A_R_         Raingage         not_connected    0.006768 100      8.227    3.839    0                        
+S36_G_R_         Raingage         not_connected    0.011542 0        10.743   11.059   0                        
+S36_H_R_         Raingage         I6               0.011205 100      19.694   11.059   0                        
+S36_A_R_         Raingage         not_connected    0.012721 100      11.279   11.059   0                        
+S37_G_R_         Raingage         not_connected    0.011211 0        10.588   12.244   0                        
+S37_H_R_         Raingage         I9               0.018304 100      25.172   12.244   0                        
+S37_A_R_         Raingage         not_connected    0.018785 100      13.706   12.244   0                        
+S38_G_R_         Raingage         not_connected    0.013728 0        11.717   16.512   0                        
+S38_H_R_         Raingage         I16              0.011331 100      19.804   16.512   0                        
+S38_A_R_         Raingage         not_connected    0.000315 100      1.774    16.512   0                        
+S39_G_R_         Raingage         not_connected    0.006331 0        7.957    13.292   0                        
+S39_H_R_         Raingage         I16              0.009197 100      17.842   13.292   0                        
+S39_A_R_         Raingage         not_connected    4.5E-05  100      0.671    13.292   0                        
+S4_G_R_          Raingage         not_connected    0.030869 0        17.57    6.049    0                        
+S4_H_R_          Raingage         I19              0.031945 100      33.254   6.049    0                        
+S4_A_R_          Raingage         not_connected    0.009752 100      9.875    6.049    0                        
+S40_G_R_         Raingage         not_connected    0.006235 0        7.896    12.598   0                        
+S40_H_R_         Raingage         I16              0.009214 100      17.858   12.598   0                        
+S40_A_R_         Raingage         not_connected    0.000117 100      1.082    12.598   0                        
+S41_G_R_         Raingage         not_connected    0.006136 0        7.833    13.747   0                        
+S41_H_R_         Raingage         I16              0.009406 100      18.044   13.747   0                        
+S41_A_R_         Raingage         not_connected    9.9E-05  100      0.994    13.747   0                        
+S42_G_R_         Raingage         not_connected    0.006396 0        7.997    13.714   0                        
+S42_H_R_         Raingage         I16              0.009129 100      17.776   13.714   0                        
+S42_A_R_         Raingage         not_connected    8.1E-05  100      0.9      13.714   0                        
+S43_G_R_         Raingage         not_connected    0.006646 0        8.152    16.697   0                        
+S43_H_R_         Raingage         I9               0.009884 100      18.496   16.697   0                        
+S43_A_R_         Raingage         not_connected    0.00071  100      2.666    16.697   0                        
+S44_G_R_         Raingage         not_connected    0.023057 0        15.185   7.505    0                        
+S44_H_R_         Raingage         I17              0.027091 100      30.622   7.505    0                        
+S44_A_R_         Raingage         not_connected    0.009252 100      9.619    7.505    0                        
+S45_G_R_         Raingage         not_connected    0.027955 0        16.72    7.158    0                        
+S45_H_R_         Raingage         I17              0.026493 100      30.282   7.158    0                        
+S45_A_R_         Raingage         not_connected    0.007819 100      8.842    7.158    0                        
+S5_G_R_          Raingage         not_connected    0.015363 0        12.395   10.054   0                        
+S5_H_R_          Raingage         I20              0.019583 100      26.036   10.054   0                        
+S5_A_R_          Raingage         not_connected    0.000801 100      2.83     10.054   0                        
+S6_G_R_          Raingage         not_connected    0.06513  0        25.521   4.133    0                        
+S6_H_R_          Raingage         not_connected    0.000126 100      1.123    4.133    0                        
+S6_A_R_          Raingage         not_connected    9E-05    100      0.949    4.133    0                        
+S7_G_R_          Raingage         not_connected    0.015184 0        12.322   4.981    0                        
+S7_H_R_          Raingage         I20              0.01218  100      20.532   4.981    0                        
+S7_A_R_          Raingage         not_connected    0.000828 100      2.878    4.981    0                        
+S8_G_R_          Raingage         not_connected    0        0        0        12.83    0                        
+S8_H_R_          Raingage         I19              2.1E-05  100      0.848    12.83    0                        
+S8_A_R_          Raingage         not_connected    0.006356 100      7.972    12.83    0                        
+S9_G_R_          Raingage         not_connected    0.032152 0        17.931   5.746    0                        
+S9_H_R_          Raingage         I18              0.030997 100      32.756   5.746    0                        
+S9_A_R_          Raingage         not_connected    0.006353 100      7.971    5.746    0                        
+V_1              Raingage         not_connected    0.138048 7.828    37.155   8.881    0                        
+V_10             Raingage         I10              0.013594 9.053    38.261   3.364    0                        
+V_11             Raingage         I17              0.019362 9.598    45.663   4.093    0                        
+V_12             Raingage         I7               0.020966 9.598    47.518   4.093    0                        
+V_13             Raingage         I7               0.000322 9.598    5.892    4.093    0                        
+V_2              Raingage         not_connected    0.055015 7.828    23.455   8.881    0                        
+V_3              Raingage         not_connected    0.134852 7.828    36.722   8.881    0                        
+V_4              Raingage         I23              0.002118 8.832    15.104   4.572    0                        
+V_5              Raingage         I22              0.008472 8.832    30.206   4.572    0                        
+V_6              Raingage         I18              0.018304 8.832    44.398   4.572    0                        
+V_7              Raingage         I13              0.021828 9.053    48.484   3.364    0                        
+V_8              Raingage         I12              0.000584 9.053    7.932    3.364    0                        
+V_9              Raingage         I12              7.8E-05  9.053    2.909    3.364    0                        
+
+[SUBAREAS]
+;;Subcatchment   N-Imperv   N-Perv     S-Imperv   S-Perv     PctZero    RouteTo    PctRouted 
+;;-------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+S1_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S1_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S1_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S10_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S10_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S10_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S11_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S11_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S11_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S12_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S12_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S12_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S13_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S13_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S13_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S14_G_M_         0.014      0.15       2.54       5          0          OUTLET    
+S14_H_M_         0.014      0.15       1.27       5          0          OUTLET    
+S14_A_M_         0.014      0.15       2.54       5          0          OUTLET    
+S15_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S15_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S15_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S16_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S16_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S16_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S17_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S17_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S17_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S18_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S18_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S18_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S19_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S19_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S19_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S2_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S2_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S2_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S20_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S20_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S20_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S21_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S21_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S21_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S22_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S22_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S22_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S23_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S23_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S23_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S24_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S24_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S24_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S25_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S25_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S25_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S26_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S26_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S26_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S27_G_M_         0.014      0.15       2.54       5          0          OUTLET    
+S27_H_M_         0.014      0.15       1.27       5          0          OUTLET    
+S27_A_M_         0.014      0.15       2.54       5          0          OUTLET    
+S28_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S28_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S28_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S29_G_R_         0.013      0.15       1.9        5          0          OUTLET    
+S29_H_R_         0.01       0.1        0.05       0.05       25         OUTLET    
+S29_A_R_         0.013      0.15       1.9        5          0          OUTLET    
+S3_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S3_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S3_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S30_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S30_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S30_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S31_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S31_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S31_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S32_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S32_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S32_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S33_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S33_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S33_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S35_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S34_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S34_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S34_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S35_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S35_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S36_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S36_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S36_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S37_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S37_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S37_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S38_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S38_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S38_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S39_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S39_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S39_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S4_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S4_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S4_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S40_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S40_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S40_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S41_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S41_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S41_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S42_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S42_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S42_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S43_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S43_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S43_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S44_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S44_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S44_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S45_G_R_         0.014      0.15       2.54       5          0          OUTLET    
+S45_H_R_         0.014      0.15       1.27       5          0          OUTLET    
+S45_A_R_         0.014      0.15       2.54       5          0          OUTLET    
+S5_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S5_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S5_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S6_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S6_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S6_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S7_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S7_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S7_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S8_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S8_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S8_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+S9_G_R_          0.014      0.15       2.54       5          0          OUTLET    
+S9_H_R_          0.014      0.15       1.27       5          0          OUTLET    
+S9_A_R_          0.014      0.15       2.54       5          0          OUTLET    
+V_1              0.013      0.15       1.9        5          0          OUTLET    
+V_10             0.013      0.15       1.9        5          0          OUTLET    
+V_11             0.013      0.15       1.9        5          0          OUTLET    
+V_12             0.013      0.15       1.9        5          0          OUTLET    
+V_13             0.013      0.15       1.9        5          0          OUTLET    
+V_2              0.013      0.15       1.9        5          0          OUTLET    
+V_3              0.013      0.15       1.9        5          0          OUTLET    
+V_4              0.013      0.15       1.9        5          0          OUTLET    
+V_5              0.013      0.15       1.9        5          0          OUTLET    
+V_6              0.013      0.15       1.9        5          0          OUTLET    
+V_7              0.013      0.15       1.9        5          0          OUTLET    
+V_8              0.013      0.15       1.9        5          0          OUTLET    
+V_9              0.013      0.15       1.9        5          0          OUTLET    
+
+[INFILTRATION]
+;;Subcatchment   MaxRate    MinRate    Decay      DryTime    MaxInfil  
+;;-------------- ---------- ---------- ---------- ---------- ----------
+S1_G_R_          70         7          4          7          0         
+S1_H_R_          70         7          4          7          0         
+S1_A_R_          70         7          4          7          0         
+S10_G_R_         70         7          4          7          0         
+S10_H_R_         70         7          4          7          0         
+S10_A_R_         70         7          4          7          0         
+S11_G_R_         70         7          4          7          0         
+S11_H_R_         70         7          4          7          0         
+S11_A_R_         70         7          4          7          0         
+S12_G_R_         70         7          4          7          0         
+S12_H_R_         70         7          4          7          0         
+S12_A_R_         70         7          4          7          0         
+S13_G_R_         70         7          4          7          0         
+S13_H_R_         70         7          4          7          0         
+S13_A_R_         70         7          4          7          0         
+S14_G_M_         70         7          4          7          0         
+S14_H_M_         70         7          4          7          0         
+S14_A_M_         70         7          4          7          0         
+S15_G_R_         70         7          4          7          0         
+S15_H_R_         70         7          4          7          0         
+S15_A_R_         70         7          4          7          0         
+S16_G_R_         70         7          4          7          0         
+S16_H_R_         70         7          4          7          0         
+S16_A_R_         70         7          4          7          0         
+S17_G_R_         70         7          4          7          0         
+S17_H_R_         70         7          4          7          0         
+S17_A_R_         70         7          4          7          0         
+S18_G_R_         70         7          4          7          0         
+S18_H_R_         70         7          4          7          0         
+S18_A_R_         70         7          4          7          0         
+S19_G_R_         70         7          4          7          0         
+S19_H_R_         70         7          4          7          0         
+S19_A_R_         70         7          4          7          0         
+S2_G_R_          70         7          4          7          0         
+S2_H_R_          70         7          4          7          0         
+S2_A_R_          70         7          4          7          0         
+S20_G_R_         70         7          4          7          0         
+S20_H_R_         70         7          4          7          0         
+S20_A_R_         70         7          4          7          0         
+S21_G_R_         70         7          4          7          0         
+S21_H_R_         70         7          4          7          0         
+S21_A_R_         70         7          4          7          0         
+S22_G_R_         70         7          4          7          0         
+S22_H_R_         70         7          4          7          0         
+S22_A_R_         70         7          4          7          0         
+S23_G_R_         70         7          4          7          0         
+S23_H_R_         70         7          4          7          0         
+S23_A_R_         70         7          4          7          0         
+S24_G_R_         70         7          4          7          0         
+S24_H_R_         70         7          4          7          0         
+S24_A_R_         70         7          4          7          0         
+S25_G_R_         70         7          4          7          0         
+S25_H_R_         70         7          4          7          0         
+S25_A_R_         70         7          4          7          0         
+S26_G_R_         70         7          4          7          0         
+S26_H_R_         70         7          4          7          0         
+S26_A_R_         70         7          4          7          0         
+S27_G_M_         70         7          4          7          0         
+S27_H_M_         70         7          4          7          0         
+S27_A_M_         70         7          4          7          0         
+S28_G_R_         70         7          4          7          0         
+S28_H_R_         70         7          4          7          0         
+S28_A_R_         70         7          4          7          0         
+S29_G_R_         70         7          4          7          0         
+S29_H_R_         3          0.5        4          7          0         
+S29_A_R_         70         7          4          7          0         
+S3_G_R_          70         7          4          7          0         
+S3_H_R_          70         7          4          7          0         
+S3_A_R_          70         7          4          7          0         
+S30_G_R_         70         7          4          7          0         
+S30_H_R_         70         7          4          7          0         
+S30_A_R_         70         7          4          7          0         
+S31_G_R_         70         7          4          7          0         
+S31_H_R_         70         7          4          7          0         
+S31_A_R_         70         7          4          7          0         
+S32_G_R_         70         7          4          7          0         
+S32_H_R_         70         7          4          7          0         
+S32_A_R_         70         7          4          7          0         
+S33_G_R_         70         7          4          7          0         
+S33_H_R_         70         7          4          7          0         
+S33_A_R_         70         7          4          7          0         
+S35_G_R_         70         7          4          7          0         
+S34_G_R_         70         7          4          7          0         
+S34_H_R_         70         7          4          7          0         
+S34_A_R_         70         7          4          7          0         
+S35_H_R_         70         7          4          7          0         
+S35_A_R_         70         7          4          7          0         
+S36_G_R_         70         7          4          7          0         
+S36_H_R_         70         7          4          7          0         
+S36_A_R_         70         7          4          7          0         
+S37_G_R_         70         7          4          7          0         
+S37_H_R_         70         7          4          7          0         
+S37_A_R_         70         7          4          7          0         
+S38_G_R_         70         7          4          7          0         
+S38_H_R_         70         7          4          7          0         
+S38_A_R_         70         7          4          7          0         
+S39_G_R_         70         7          4          7          0         
+S39_H_R_         70         7          4          7          0         
+S39_A_R_         70         7          4          7          0         
+S4_G_R_          70         7          4          7          0         
+S4_H_R_          70         7          4          7          0         
+S4_A_R_          70         7          4          7          0         
+S40_G_R_         70         7          4          7          0         
+S40_H_R_         70         7          4          7          0         
+S40_A_R_         70         7          4          7          0         
+S41_G_R_         70         7          4          7          0         
+S41_H_R_         70         7          4          7          0         
+S41_A_R_         70         7          4          7          0         
+S42_G_R_         70         7          4          7          0         
+S42_H_R_         70         7          4          7          0         
+S42_A_R_         70         7          4          7          0         
+S43_G_R_         70         7          4          7          0         
+S43_H_R_         70         7          4          7          0         
+S43_A_R_         70         7          4          7          0         
+S44_G_R_         70         7          4          7          0         
+S44_H_R_         70         7          4          7          0         
+S44_A_R_         70         7          4          7          0         
+S45_G_R_         70         7          4          7          0         
+S45_H_R_         70         7          4          7          0         
+S45_A_R_         70         7          4          7          0         
+S5_G_R_          70         7          4          7          0         
+S5_H_R_          70         7          4          7          0         
+S5_A_R_          70         7          4          7          0         
+S6_G_R_          70         7          4          7          0         
+S6_H_R_          70         7          4          7          0         
+S6_A_R_          70         7          4          7          0         
+S7_G_R_          70         7          4          7          0         
+S7_H_R_          70         7          4          7          0         
+S7_A_R_          70         7          4          7          0         
+S8_G_R_          70         7          4          7          0         
+S8_H_R_          70         7          4          7          0         
+S8_A_R_          70         7          4          7          0         
+S9_G_R_          70         7          4          7          0         
+S9_H_R_          70         7          4          7          0         
+S9_A_R_          70         7          4          7          0         
+V_1              70         7          4          7          0         
+V_10             70         7          4          7          0         
+V_11             70         7          4          7          0         
+V_12             70         7          4          7          0         
+V_13             70         7          4          7          0         
+V_2              70         7          4          7          0         
+V_3              70         7          4          7          0         
+V_4              70         7          4          7          0         
+V_5              70         7          4          7          0         
+V_6              70         7          4          7          0         
+V_7              70         7          4          7          0         
+V_8              70         7          4          7          0         
+V_9              70         7          4          7          0         
+
+[JUNCTIONS]
+;;Name           Elevation  MaxDepth   InitDepth  SurDepth   Aponded   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+I1               153.04     3.51       0          0          0         
+I10              154.6      3.09       0          0          0         
+I11              154.74     3.14       0          0          0         
+I12              155.77     2.61       0          0          0         
+I13              156.29     2.56       0          0          0         
+I14              156.67     2.7        0          0          0         
+I15              157.16     2.78       0          0          0         
+I16              154.79     2.86       0          0          0         
+I17              155.17     2.67       0          0          0         
+I18              155.42     2.84       0          0          0         
+I19              155.72     3.08       0          0          0         
+I2               153.52     3.57       0          0          0         
+I20              156.23     3.01       0          0          0         
+I22              156.97     2.88       0          0          0         
+I23              157.09     2.86       0          0          0         
+I24              147.5      2.38       0          0          0         
+I3               153.76     3.96       0          0          0         
+I4               154.05     3.97       0          0          0         
+I5               154.46     4.57       0          0          0         
+I6               155.08     5.4        0          0          0         
+I7               153.91     4.09       0          0          0         
+I8               154.32     3.17       0          0          0         
+I9               154.56     2.99       0          0          0         
+
+[OUTFALLS]
+;;Name           Elevation  Type       Stage Data       Gated    Route To        
+;;-------------- ---------- ---------- ---------------- -------- ----------------
+Irrigation       147        FREE                        NO                       
+not_connected    0          FREE                        NO                       
+treatment_plant  145.6      FREE                        NO                       
+CSO              0          FREE                        NO                       
+
+[STORAGE]
+;;Name           Elev.    MaxDepth   InitDepth  Shape      Curve Name/Params            N/A      Fevap    Psi      Ksat     IMD     
+;;-------------- -------- ---------- ----------- ---------- ---------------------------- -------- --------          -------- --------
+CSO_building     147.66   4.543      0          TABULAR    CSO_Storage                  0        0       
+
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+C1               I3               I2               25.035     0.02       0          0          0          0         
+C10              I8               I7               39.583     0.02       0          0          0          0         
+C11              I9               I8               17.082     0.02       0          0          0          0         
+C12              I10              I9               12.796     0.02       0          0          0          0         
+C13              I11              I10              16.631     0.02       0          0          0          0         
+C14              I12              I11              37.411     0.02       0          0          0          0         
+C15              I13              I12              22.953     0.02       0          0          0          0         
+C16              I14              I13              21.012     0.02       0          0          0          0         
+C17              I15              I14              23.204     0.02       0          0          0          0         
+C18              I16              I9               30.204     0.02       0          0          0          0         
+C19              I17              I16              41.892     0.02       0          0          0          0         
+C2               I4               I3               21.064     0.02       0          0          0          0         
+C20              I18              I17              27.089     0.02       0          0          0          0         
+C21              I19              I18              27.445     0.02       0          0          0          0         
+C22              I20              I19              25.138     0.02       0          0          0          0         
+C23              I22              I20              36.274     0.02       0          0          0          0         
+C24              I23              I22              5.181      0.02       0          0          0          0         
+C3               I5               I4               41.202     0.02       0          0          0          0         
+C4               I6               I5               53.004     0.02       0          0          0          0         
+C5               I1               CSO_building     43.616     0.02       0          3          0          0         
+C6               I2               I1               24.933     0.02       0          0          0          0         
+C7               CSO_building     I24              32.017     0.01       0          0          0          2.5       
+C8               I24              treatment_plant  20.771     0.01       0          0          0          0         
+C9               I7               I3               23.89      0.02       0          0          0          0         
+
+[WEIRS]
+;;Name           From Node        To Node          Type         CrestHt    Qcoeff     Gated    EndCon   EndCoeff   Surcharge  RoadWidth  RoadSurf  
+;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- -------- ---------- ---------- ---------- ----------
+W1               CSO_building     CSO              SIDEFLOW     2.3        1.5        YES      0        0          YES       
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels    Culvert   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ---------- ----------
+C1               CIRCULAR     0.25             0          0          0          1                    
+C10              CIRCULAR     0.25             0          0          0          1                    
+C11              CIRCULAR     0.25             0          0          0          1                    
+C12              CIRCULAR     0.25             0          0          0          1                    
+C13              CIRCULAR     0.25             0          0          0          1                    
+C14              CIRCULAR     0.25             0          0          0          1                    
+C15              CIRCULAR     0.25             0          0          0          1                    
+C16              CIRCULAR     0.25             0          0          0          1                    
+C17              CIRCULAR     0.25             0          0          0          1                    
+C18              CIRCULAR     0.25             0          0          0          1                    
+C19              CIRCULAR     0.25             0          0          0          1                    
+C2               CIRCULAR     0.25             0          0          0          1                    
+C20              CIRCULAR     0.25             0          0          0          1                    
+C21              CIRCULAR     0.25             0          0          0          1                    
+C22              CIRCULAR     0.25             0          0          0          1                    
+C23              CIRCULAR     0.25             0          0          0          1                    
+C24              CIRCULAR     0.25             0          0          0          1                    
+C3               CIRCULAR     0.25             0          0          0          1                    
+C4               CIRCULAR     0.25             0          0          0          1                    
+C5               CIRCULAR     0.25             0          0          0          1                    
+C6               CIRCULAR     0.25             0          0          0          1                    
+C7               CIRCULAR     0.25             0          0          0          1                    
+C8               CIRCULAR     0.25             0          0          0          1                    
+C9               CIRCULAR     0.25             0          0          0          1                    
+W1               RECT_OPEN    1                3          0          0         
+
+[DWF]
+;;Node           Constituent      Baseline   Patterns  
+;;-------------- ---------------- ---------- ----------
+I10              FLOW             0.052547   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I11              FLOW             0.157641   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I13              FLOW             0.262744   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I16              FLOW             0.262744   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I17              FLOW             0.157641   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I18              FLOW             0.157641   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I19              FLOW             0.105094   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I20              FLOW             0.210196   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I23              FLOW             0.105094   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I6               FLOW             0.157641   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I8               FLOW             0.105094   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+I9               FLOW             0.105094   "TW_C3_R_eekday" "TW_C3_R_eekend" "TW_C3_R_eek"
+
+[CURVES]
+;;Name           Type       X-Value    Y-Value   
+;;-------------- ---------- ---------- ----------
+CSO_Storage      Storage    0          2.5       
+CSO_Storage                 0.2        5         
+CSO_Storage                 3          5         
+
+[PATTERNS]
+;;Name           Type       Multipliers
+;;-------------- ---------- -----------
+TW_C3_R_eek      DAILY      0.999 1.004 0.984 1.004 0.999 1.009 1.001
+;
+TW_C3_R_eekday   HOURLY     0.89  0.85  0.84  0.86  0.89  1.03 
+TW_C3_R_eekday              1.08  1.08  1.06  1.04  1.04  1.04 
+TW_C3_R_eekday              1.03  1.01  1     1     1.02  1.05 
+TW_C3_R_eekday              1.07  1.07  1.05  1.04  1.01  0.944
+;
+TW_C3_R_eekend   WEEKEND    0.94  1.01  1.08  1.09  1.13  1.18 
+TW_C3_R_eekend              1.26  1.17  0.86  0.05  0.75  0.86 
+TW_C3_R_eekend              0.92  1.02  1.16  1.19  1.13  1.14 
+TW_C3_R_eekend              0.99  0.92  0.94  1.12  1.03  1.06 
+
+[REPORT]
+;;Reporting Options
+INPUT      NO
+CONTROLS   NO
+SUBCATCHMENTS NONE
+NODES CSO_building CSO
+LINKS NONE
+
+[TAGS]
+
+[MAP]
+DIMENSIONS 96311.633 80199.584 96776.000 80499.140
+Units      Meters
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+I1               96672.130          80436.600         
+I10              96549.620          80405.540         
+I11              96542.500          80390.510         
+I12              96525.470          80357.200         
+I13              96514.370          80337.110         
+I14              96503.870          80318.910         
+I15              96491.450          80299.310         
+I16              96530.240          80422.510         
+I17              96489.690          80433.030         
+I18              96477.840          80408.670         
+I19              96465.980          80383.920         
+I2               96653.350          80420.200         
+I20              96453.070          80362.350         
+I22              96434.500          80331.190         
+I23              96431.670          80326.850         
+I24              96738.008          80473.426         
+I3               96638.120          80400.330         
+I4               96625.820          80383.230         
+I5               96605.130          80347.600         
+I6               96581.230          80300.290         
+I7               96614.230          80400.480         
+I8               96575.640          80409.290         
+I9               96559.220          80414.000         
+Irrigation       96646.981          80235.623         
+not_connected    96332.740          80376.132         
+treatment_plant  96754.892          80485.524         
+CSO              96728.146          80453.410         
+CSO_building     96708.954          80459.974         
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+
+[Polygons]
+;;Subcatchment   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+S1_G_R_          96476.740          80337.620         
+S1_G_R_          96473.160          80331.270         
+S1_G_R_          96445.960          80344.930         
+S1_G_R_          96447.010          80346.640         
+S1_G_R_          96455.920          80362.000         
+S1_G_R_          96457.520          80364.750         
+S1_G_R_          96462.960          80362.000         
+S1_G_R_          96478.760          80354.020         
+S1_G_R_          96479.120          80353.840         
+S1_G_R_          96484.390          80351.180         
+S1_G_R_          96480.480          80344.250         
+S1_G_R_          96479.860          80343.150         
+S1_G_R_          96476.740          80337.620         
+S1_H_R_          96476.740          80337.620         
+S1_H_R_          96473.160          80331.270         
+S1_H_R_          96445.960          80344.930         
+S1_H_R_          96447.010          80346.640         
+S1_H_R_          96455.920          80362.000         
+S1_H_R_          96457.520          80364.750         
+S1_H_R_          96462.960          80362.000         
+S1_H_R_          96478.760          80354.020         
+S1_H_R_          96479.120          80353.840         
+S1_H_R_          96484.390          80351.180         
+S1_H_R_          96480.480          80344.250         
+S1_H_R_          96479.860          80343.150         
+S1_H_R_          96476.740          80337.620         
+S1_A_R_          96476.740          80337.620         
+S1_A_R_          96473.160          80331.270         
+S1_A_R_          96445.960          80344.930         
+S1_A_R_          96447.010          80346.640         
+S1_A_R_          96455.920          80362.000         
+S1_A_R_          96457.520          80364.750         
+S1_A_R_          96462.960          80362.000         
+S1_A_R_          96478.760          80354.020         
+S1_A_R_          96479.120          80353.840         
+S1_A_R_          96484.390          80351.180         
+S1_A_R_          96480.480          80344.250         
+S1_A_R_          96479.860          80343.150         
+S1_A_R_          96476.740          80337.620         
+S10_G_R_         96440.500          80374.410         
+S10_G_R_         96448.790          80369.610         
+S10_G_R_         96453.040          80367.150         
+S10_G_R_         96450.010          80362.000         
+S10_G_R_         96442.350          80348.980         
+S10_G_R_         96441.380          80347.370         
+S10_G_R_         96420.490          80362.000         
+S10_G_R_         96416.710          80364.650         
+S10_G_R_         96424.610          80375.130         
+S10_G_R_         96428.950          80381.100         
+S10_G_R_         96438.360          80375.650         
+S10_G_R_         96440.500          80374.410         
+S10_H_R_         96440.500          80374.410         
+S10_H_R_         96448.790          80369.610         
+S10_H_R_         96453.040          80367.150         
+S10_H_R_         96450.010          80362.000         
+S10_H_R_         96442.350          80348.980         
+S10_H_R_         96441.380          80347.370         
+S10_H_R_         96420.490          80362.000         
+S10_H_R_         96416.710          80364.650         
+S10_H_R_         96424.610          80375.130         
+S10_H_R_         96428.950          80381.100         
+S10_H_R_         96438.360          80375.650         
+S10_H_R_         96440.500          80374.410         
+S10_A_R_         96440.500          80374.410         
+S10_A_R_         96448.790          80369.610         
+S10_A_R_         96453.040          80367.150         
+S10_A_R_         96450.010          80362.000         
+S10_A_R_         96442.350          80348.980         
+S10_A_R_         96441.380          80347.370         
+S10_A_R_         96420.490          80362.000         
+S10_A_R_         96416.710          80364.650         
+S10_A_R_         96424.610          80375.130         
+S10_A_R_         96428.950          80381.100         
+S10_A_R_         96438.360          80375.650         
+S10_A_R_         96440.500          80374.410         
+S11_G_R_         96416.710          80364.650         
+S11_G_R_         96420.490          80362.000         
+S11_G_R_         96441.380          80347.370         
+S11_G_R_         96430.700          80329.830         
+S11_G_R_         96429.930          80328.540         
+S11_G_R_         96429.580          80328.840         
+S11_G_R_         96417.010          80339.480         
+S11_G_R_         96411.800          80343.900         
+S11_G_R_         96408.670          80346.540         
+S11_G_R_         96406.480          80348.400         
+S11_G_R_         96413.300          80360.120         
+S11_G_R_         96414.720          80362.000         
+S11_G_R_         96416.710          80364.650         
+S11_H_R_         96416.710          80364.650         
+S11_H_R_         96420.490          80362.000         
+S11_H_R_         96441.380          80347.370         
+S11_H_R_         96430.700          80329.830         
+S11_H_R_         96429.930          80328.540         
+S11_H_R_         96429.580          80328.840         
+S11_H_R_         96417.010          80339.480         
+S11_H_R_         96411.800          80343.900         
+S11_H_R_         96408.670          80346.540         
+S11_H_R_         96406.480          80348.400         
+S11_H_R_         96413.300          80360.120         
+S11_H_R_         96414.720          80362.000         
+S11_H_R_         96416.710          80364.650         
+S11_A_R_         96416.710          80364.650         
+S11_A_R_         96420.490          80362.000         
+S11_A_R_         96441.380          80347.370         
+S11_A_R_         96430.700          80329.830         
+S11_A_R_         96429.930          80328.540         
+S11_A_R_         96429.580          80328.840         
+S11_A_R_         96417.010          80339.480         
+S11_A_R_         96411.800          80343.900         
+S11_A_R_         96408.670          80346.540         
+S11_A_R_         96406.480          80348.400         
+S11_A_R_         96413.300          80360.120         
+S11_A_R_         96414.720          80362.000         
+S11_A_R_         96416.710          80364.650         
+S12_G_R_         96450.340          80296.960         
+S12_G_R_         96441.100          80283.060         
+S12_G_R_         96424.560          80302.120         
+S12_G_R_         96423.360          80309.540         
+S12_G_R_         96429.740          80319.130         
+S12_G_R_         96452.030          80299.500         
+S12_G_R_         96450.340          80296.960         
+S12_H_R_         96450.340          80296.960         
+S12_H_R_         96441.100          80283.060         
+S12_H_R_         96424.560          80302.120         
+S12_H_R_         96423.360          80309.540         
+S12_H_R_         96429.740          80319.130         
+S12_H_R_         96452.030          80299.500         
+S12_H_R_         96450.340          80296.960         
+S12_A_R_         96450.340          80296.960         
+S12_A_R_         96441.100          80283.060         
+S12_A_R_         96424.560          80302.120         
+S12_A_R_         96423.360          80309.540         
+S12_A_R_         96429.740          80319.130         
+S12_A_R_         96452.030          80299.500         
+S12_A_R_         96450.340          80296.960         
+S13_G_R_         96459.140          80310.190         
+S13_G_R_         96452.030          80299.500         
+S13_G_R_         96429.740          80319.130         
+S13_G_R_         96435.180          80327.320         
+S13_G_R_         96438.030          80331.970         
+S13_G_R_         96462.710          80315.560         
+S13_G_R_         96459.140          80310.190         
+S13_H_R_         96459.140          80310.190         
+S13_H_R_         96452.030          80299.500         
+S13_H_R_         96429.740          80319.130         
+S13_H_R_         96435.180          80327.320         
+S13_H_R_         96438.030          80331.970         
+S13_H_R_         96462.710          80315.560         
+S13_H_R_         96459.140          80310.190         
+S13_A_R_         96459.140          80310.190         
+S13_A_R_         96452.030          80299.500         
+S13_A_R_         96429.740          80319.130         
+S13_A_R_         96435.180          80327.320         
+S13_A_R_         96438.030          80331.970         
+S13_A_R_         96462.710          80315.560         
+S13_A_R_         96459.140          80310.190         
+S14_G_M_         96467.880          80323.330         
+S14_G_M_         96462.710          80315.560         
+S14_G_M_         96438.030          80331.970         
+S14_G_M_         96445.960          80344.930         
+S14_G_M_         96473.160          80331.270         
+S14_G_M_         96467.880          80323.330         
+S14_H_M_         96467.880          80323.330         
+S14_H_M_         96462.710          80315.560         
+S14_H_M_         96438.030          80331.970         
+S14_H_M_         96445.960          80344.930         
+S14_H_M_         96473.160          80331.270         
+S14_H_M_         96467.880          80323.330         
+S14_A_M_         96467.880          80323.330         
+S14_A_M_         96462.710          80315.560         
+S14_A_M_         96438.030          80331.970         
+S14_A_M_         96445.960          80344.930         
+S14_A_M_         96473.160          80331.270         
+S14_A_M_         96467.880          80323.330         
+S15_G_R_         96502.430          80321.860         
+S15_G_R_         96492.920          80306.680         
+S15_G_R_         96467.880          80323.330         
+S15_G_R_         96473.160          80331.270         
+S15_G_R_         96476.740          80337.620         
+S15_G_R_         96502.430          80321.860         
+S15_H_R_         96502.430          80321.860         
+S15_H_R_         96492.920          80306.680         
+S15_H_R_         96467.880          80323.330         
+S15_H_R_         96473.160          80331.270         
+S15_H_R_         96476.740          80337.620         
+S15_H_R_         96502.430          80321.860         
+S15_A_R_         96502.430          80321.860         
+S15_A_R_         96492.920          80306.680         
+S15_A_R_         96467.880          80323.330         
+S15_A_R_         96473.160          80331.270         
+S15_A_R_         96476.740          80337.620         
+S15_A_R_         96502.430          80321.860         
+S16_G_R_         96492.920          80306.680         
+S16_G_R_         96491.490          80304.400         
+S16_G_R_         96482.440          80291.080         
+S16_G_R_         96459.140          80310.190         
+S16_G_R_         96462.710          80315.560         
+S16_G_R_         96467.880          80323.330         
+S16_G_R_         96492.920          80306.680         
+S16_H_R_         96492.920          80306.680         
+S16_H_R_         96491.490          80304.400         
+S16_H_R_         96482.440          80291.080         
+S16_H_R_         96459.140          80310.190         
+S16_H_R_         96462.710          80315.560         
+S16_H_R_         96467.880          80323.330         
+S16_H_R_         96492.920          80306.680         
+S16_A_R_         96492.920          80306.680         
+S16_A_R_         96491.490          80304.400         
+S16_A_R_         96482.440          80291.080         
+S16_A_R_         96459.140          80310.190         
+S16_A_R_         96462.710          80315.560         
+S16_A_R_         96467.880          80323.330         
+S16_A_R_         96492.920          80306.680         
+S17_G_R_         96450.340          80296.960         
+S17_G_R_         96452.030          80299.500         
+S17_G_R_         96459.140          80310.190         
+S17_G_R_         96482.440          80291.080         
+S17_G_R_         96474.760          80279.770         
+S17_G_R_         96471.850          80275.450         
+S17_G_R_         96450.340          80296.960         
+S17_H_R_         96450.340          80296.960         
+S17_H_R_         96452.030          80299.500         
+S17_H_R_         96459.140          80310.190         
+S17_H_R_         96482.440          80291.080         
+S17_H_R_         96474.760          80279.770         
+S17_H_R_         96471.850          80275.450         
+S17_H_R_         96450.340          80296.960         
+S17_A_R_         96450.340          80296.960         
+S17_A_R_         96452.030          80299.500         
+S17_A_R_         96459.140          80310.190         
+S17_A_R_         96482.440          80291.080         
+S17_A_R_         96474.760          80279.770         
+S17_A_R_         96471.850          80275.450         
+S17_A_R_         96450.340          80296.960         
+S18_G_R_         96441.100          80283.060         
+S18_G_R_         96450.340          80296.960         
+S18_G_R_         96471.850          80275.450         
+S18_G_R_         96463.410          80262.940         
+S18_G_R_         96457.810          80263.810         
+S18_G_R_         96441.100          80283.060         
+S18_H_R_         96441.100          80283.060         
+S18_H_R_         96450.340          80296.960         
+S18_H_R_         96471.850          80275.450         
+S18_H_R_         96463.410          80262.940         
+S18_H_R_         96457.810          80263.810         
+S18_H_R_         96441.100          80283.060         
+S18_A_R_         96441.100          80283.060         
+S18_A_R_         96450.340          80296.960         
+S18_A_R_         96471.850          80275.450         
+S18_A_R_         96463.410          80262.940         
+S18_A_R_         96457.810          80263.810         
+S18_A_R_         96441.100          80283.060         
+S19_G_R_         96495.460          80370.790         
+S19_G_R_         96490.180          80373.470         
+S19_G_R_         96468.260          80384.600         
+S19_G_R_         96470.640          80389.010         
+S19_G_R_         96480.470          80409.440         
+S19_G_R_         96490.970          80405.340         
+S19_G_R_         96496.590          80403.150         
+S19_G_R_         96509.430          80398.140         
+S19_G_R_         96508.100          80395.470         
+S19_G_R_         96503.860          80387.010         
+S19_G_R_         96497.920          80375.150         
+S19_G_R_         96495.460          80370.790         
+S19_H_R_         96495.460          80370.790         
+S19_H_R_         96490.180          80373.470         
+S19_H_R_         96468.260          80384.600         
+S19_H_R_         96470.640          80389.010         
+S19_H_R_         96480.470          80409.440         
+S19_H_R_         96490.970          80405.340         
+S19_H_R_         96496.590          80403.150         
+S19_H_R_         96509.430          80398.140         
+S19_H_R_         96508.100          80395.470         
+S19_H_R_         96503.860          80387.010         
+S19_H_R_         96497.920          80375.150         
+S19_H_R_         96495.460          80370.790         
+S19_A_R_         96495.460          80370.790         
+S19_A_R_         96490.180          80373.470         
+S19_A_R_         96468.260          80384.600         
+S19_A_R_         96470.640          80389.010         
+S19_A_R_         96480.470          80409.440         
+S19_A_R_         96490.970          80405.340         
+S19_A_R_         96496.590          80403.150         
+S19_A_R_         96509.430          80398.140         
+S19_A_R_         96508.100          80395.470         
+S19_A_R_         96503.860          80387.010         
+S19_A_R_         96497.920          80375.150         
+S19_A_R_         96495.460          80370.790         
+S2_G_R_          96429.580          80328.840         
+S2_G_R_          96419.750          80313.320         
+S2_G_R_          96413.880          80312.750         
+S2_G_R_          96401.080          80326.060         
+S2_G_R_          96397.220          80330.080         
+S2_G_R_          96395.060          80333.260         
+S2_G_R_          96399.810          80335.490         
+S2_G_R_          96403.470          80343.140         
+S2_G_R_          96403.740          80343.700         
+S2_G_R_          96406.480          80348.400         
+S2_G_R_          96408.670          80346.540         
+S2_G_R_          96411.800          80343.900         
+S2_G_R_          96417.010          80339.480         
+S2_G_R_          96429.580          80328.840         
+S2_H_R_          96429.580          80328.840         
+S2_H_R_          96419.750          80313.320         
+S2_H_R_          96413.880          80312.750         
+S2_H_R_          96401.080          80326.060         
+S2_H_R_          96397.220          80330.080         
+S2_H_R_          96395.060          80333.260         
+S2_H_R_          96399.810          80335.490         
+S2_H_R_          96403.470          80343.140         
+S2_H_R_          96403.740          80343.700         
+S2_H_R_          96406.480          80348.400         
+S2_H_R_          96408.670          80346.540         
+S2_H_R_          96411.800          80343.900         
+S2_H_R_          96417.010          80339.480         
+S2_H_R_          96429.580          80328.840         
+S2_A_R_          96429.580          80328.840         
+S2_A_R_          96419.750          80313.320         
+S2_A_R_          96413.880          80312.750         
+S2_A_R_          96401.080          80326.060         
+S2_A_R_          96397.220          80330.080         
+S2_A_R_          96395.060          80333.260         
+S2_A_R_          96399.810          80335.490         
+S2_A_R_          96403.470          80343.140         
+S2_A_R_          96403.740          80343.700         
+S2_A_R_          96406.480          80348.400         
+S2_A_R_          96408.670          80346.540         
+S2_A_R_          96411.800          80343.900         
+S2_A_R_          96417.010          80339.480         
+S2_A_R_          96429.580          80328.840         
+S20_G_R_         96531.010          80372.920         
+S20_G_R_         96525.400          80362.000         
+S20_G_R_         96522.360          80356.080         
+S20_G_R_         96511.580          80362.000         
+S20_G_R_         96495.760          80370.690         
+S20_G_R_         96495.460          80370.790         
+S20_G_R_         96497.920          80375.150         
+S20_G_R_         96503.860          80387.010         
+S20_G_R_         96525.790          80375.630         
+S20_G_R_         96529.220          80373.850         
+S20_G_R_         96531.010          80372.920         
+S20_H_R_         96531.010          80372.920         
+S20_H_R_         96525.400          80362.000         
+S20_H_R_         96522.360          80356.080         
+S20_H_R_         96511.580          80362.000         
+S20_H_R_         96495.760          80370.690         
+S20_H_R_         96495.460          80370.790         
+S20_H_R_         96497.920          80375.150         
+S20_H_R_         96503.860          80387.010         
+S20_H_R_         96525.790          80375.630         
+S20_H_R_         96529.220          80373.850         
+S20_H_R_         96531.010          80372.920         
+S20_A_R_         96531.010          80372.920         
+S20_A_R_         96525.400          80362.000         
+S20_A_R_         96522.360          80356.080         
+S20_A_R_         96511.580          80362.000         
+S20_A_R_         96495.760          80370.690         
+S20_A_R_         96495.460          80370.790         
+S20_A_R_         96497.920          80375.150         
+S20_A_R_         96503.860          80387.010         
+S20_A_R_         96525.790          80375.630         
+S20_A_R_         96529.220          80373.850         
+S20_A_R_         96531.010          80372.920         
+S21_G_R_         96545.430          80402.430         
+S21_G_R_         96541.390          80403.530         
+S21_G_R_         96540.520          80403.760         
+S21_G_R_         96528.260          80407.090         
+S21_G_R_         96526.830          80407.480         
+S21_G_R_         96515.320          80410.610         
+S21_G_R_         96518.140          80416.580         
+S21_G_R_         96520.630          80421.860         
+S21_G_R_         96546.620          80414.800         
+S21_G_R_         96548.700          80409.300         
+S21_G_R_         96545.430          80402.430         
+S21_H_R_         96545.430          80402.430         
+S21_H_R_         96541.390          80403.530         
+S21_H_R_         96540.520          80403.760         
+S21_H_R_         96528.260          80407.090         
+S21_H_R_         96526.830          80407.480         
+S21_H_R_         96515.320          80410.610         
+S21_H_R_         96518.140          80416.580         
+S21_H_R_         96520.630          80421.860         
+S21_H_R_         96546.620          80414.800         
+S21_H_R_         96548.700          80409.300         
+S21_H_R_         96545.430          80402.430         
+S21_A_R_         96545.430          80402.430         
+S21_A_R_         96541.390          80403.530         
+S21_A_R_         96540.520          80403.760         
+S21_A_R_         96528.260          80407.090         
+S21_A_R_         96526.830          80407.480         
+S21_A_R_         96515.320          80410.610         
+S21_A_R_         96518.140          80416.580         
+S21_A_R_         96520.630          80421.860         
+S21_A_R_         96546.620          80414.800         
+S21_A_R_         96548.700          80409.300         
+S21_A_R_         96545.430          80402.430         
+S22_G_R_         96545.430          80402.430         
+S22_G_R_         96541.830          80394.860         
+S22_G_R_         96537.140          80396.130         
+S22_G_R_         96536.420          80396.330         
+S22_G_R_         96525.920          80399.180         
+S22_G_R_         96523.340          80399.880         
+S22_G_R_         96511.740          80403.030         
+S22_G_R_         96515.070          80410.090         
+S22_G_R_         96515.320          80410.610         
+S22_G_R_         96526.830          80407.480         
+S22_G_R_         96528.260          80407.090         
+S22_G_R_         96540.520          80403.760         
+S22_G_R_         96541.390          80403.530         
+S22_G_R_         96545.430          80402.430         
+S22_H_R_         96545.430          80402.430         
+S22_H_R_         96541.830          80394.860         
+S22_H_R_         96537.140          80396.130         
+S22_H_R_         96536.420          80396.330         
+S22_H_R_         96525.920          80399.180         
+S22_H_R_         96523.340          80399.880         
+S22_H_R_         96511.740          80403.030         
+S22_H_R_         96515.070          80410.090         
+S22_H_R_         96515.320          80410.610         
+S22_H_R_         96526.830          80407.480         
+S22_H_R_         96528.260          80407.090         
+S22_H_R_         96540.520          80403.760         
+S22_H_R_         96541.390          80403.530         
+S22_H_R_         96545.430          80402.430         
+S22_A_R_         96545.430          80402.430         
+S22_A_R_         96541.830          80394.860         
+S22_A_R_         96537.140          80396.130         
+S22_A_R_         96536.420          80396.330         
+S22_A_R_         96525.920          80399.180         
+S22_A_R_         96523.340          80399.880         
+S22_A_R_         96511.740          80403.030         
+S22_A_R_         96515.070          80410.090         
+S22_A_R_         96515.320          80410.610         
+S22_A_R_         96526.830          80407.480         
+S22_A_R_         96528.260          80407.090         
+S22_A_R_         96540.520          80403.760         
+S22_A_R_         96541.390          80403.530         
+S22_A_R_         96545.430          80402.430         
+S23_G_R_         96541.830          80394.860         
+S23_G_R_         96538.230          80387.290         
+S23_G_R_         96532.860          80388.750         
+S23_G_R_         96522.390          80391.590         
+S23_G_R_         96520.070          80392.220         
+S23_G_R_         96508.100          80395.470         
+S23_G_R_         96509.430          80398.140         
+S23_G_R_         96511.740          80403.030         
+S23_G_R_         96523.340          80399.880         
+S23_G_R_         96525.920          80399.180         
+S23_G_R_         96536.420          80396.330         
+S23_G_R_         96537.140          80396.130         
+S23_G_R_         96541.830          80394.860         
+S23_H_R_         96541.830          80394.860         
+S23_H_R_         96538.230          80387.290         
+S23_H_R_         96532.860          80388.750         
+S23_H_R_         96522.390          80391.590         
+S23_H_R_         96520.070          80392.220         
+S23_H_R_         96508.100          80395.470         
+S23_H_R_         96509.430          80398.140         
+S23_H_R_         96511.740          80403.030         
+S23_H_R_         96523.340          80399.880         
+S23_H_R_         96525.920          80399.180         
+S23_H_R_         96536.420          80396.330         
+S23_H_R_         96537.140          80396.130         
+S23_H_R_         96541.830          80394.860         
+S23_A_R_         96541.830          80394.860         
+S23_A_R_         96538.230          80387.290         
+S23_A_R_         96532.860          80388.750         
+S23_A_R_         96522.390          80391.590         
+S23_A_R_         96520.070          80392.220         
+S23_A_R_         96508.100          80395.470         
+S23_A_R_         96509.430          80398.140         
+S23_A_R_         96511.740          80403.030         
+S23_A_R_         96523.340          80399.880         
+S23_A_R_         96525.920          80399.180         
+S23_A_R_         96536.420          80396.330         
+S23_A_R_         96537.140          80396.130         
+S23_A_R_         96541.830          80394.860         
+S24_G_R_         96531.010          80372.920         
+S24_G_R_         96529.220          80373.850         
+S24_G_R_         96525.790          80375.630         
+S24_G_R_         96503.860          80387.010         
+S24_G_R_         96508.100          80395.470         
+S24_G_R_         96520.070          80392.220         
+S24_G_R_         96522.390          80391.590         
+S24_G_R_         96532.860          80388.750         
+S24_G_R_         96538.230          80387.290         
+S24_G_R_         96536.100          80382.820         
+S24_G_R_         96531.070          80373.030         
+S24_G_R_         96531.010          80372.920         
+S24_H_R_         96531.010          80372.920         
+S24_H_R_         96529.220          80373.850         
+S24_H_R_         96525.790          80375.630         
+S24_H_R_         96503.860          80387.010         
+S24_H_R_         96508.100          80395.470         
+S24_H_R_         96520.070          80392.220         
+S24_H_R_         96522.390          80391.590         
+S24_H_R_         96532.860          80388.750         
+S24_H_R_         96538.230          80387.290         
+S24_H_R_         96536.100          80382.820         
+S24_H_R_         96531.070          80373.030         
+S24_H_R_         96531.010          80372.920         
+S24_A_R_         96531.010          80372.920         
+S24_A_R_         96529.220          80373.850         
+S24_A_R_         96525.790          80375.630         
+S24_A_R_         96503.860          80387.010         
+S24_A_R_         96508.100          80395.470         
+S24_A_R_         96520.070          80392.220         
+S24_A_R_         96522.390          80391.590         
+S24_A_R_         96532.860          80388.750         
+S24_A_R_         96538.230          80387.290         
+S24_A_R_         96536.100          80382.820         
+S24_A_R_         96531.070          80373.030         
+S24_A_R_         96531.010          80372.920         
+S25_G_R_         96502.430          80321.860         
+S25_G_R_         96476.740          80337.620         
+S25_G_R_         96479.860          80343.150         
+S25_G_R_         96480.480          80344.250         
+S25_G_R_         96484.390          80351.180         
+S25_G_R_         96486.200          80354.390         
+S25_G_R_         96512.530          80339.130         
+S25_G_R_         96507.310          80330.120         
+S25_G_R_         96502.430          80321.860         
+S25_H_R_         96502.430          80321.860         
+S25_H_R_         96476.740          80337.620         
+S25_H_R_         96479.860          80343.150         
+S25_H_R_         96480.480          80344.250         
+S25_H_R_         96484.390          80351.180         
+S25_H_R_         96486.200          80354.390         
+S25_H_R_         96512.530          80339.130         
+S25_H_R_         96507.310          80330.120         
+S25_H_R_         96502.430          80321.860         
+S25_A_R_         96502.430          80321.860         
+S25_A_R_         96476.740          80337.620         
+S25_A_R_         96479.860          80343.150         
+S25_A_R_         96480.480          80344.250         
+S25_A_R_         96484.390          80351.180         
+S25_A_R_         96486.200          80354.390         
+S25_A_R_         96512.530          80339.130         
+S25_A_R_         96507.310          80330.120         
+S25_A_R_         96502.430          80321.860         
+S26_G_R_         96495.460          80370.790         
+S26_G_R_         96495.760          80370.690         
+S26_G_R_         96511.580          80362.000         
+S26_G_R_         96522.360          80356.080         
+S26_G_R_         96512.530          80339.130         
+S26_G_R_         96486.200          80354.390         
+S26_G_R_         96490.490          80362.000         
+S26_G_R_         96492.380          80365.340         
+S26_G_R_         96495.460          80370.790         
+S26_H_R_         96495.460          80370.790         
+S26_H_R_         96495.760          80370.690         
+S26_H_R_         96511.580          80362.000         
+S26_H_R_         96522.360          80356.080         
+S26_H_R_         96512.530          80339.130         
+S26_H_R_         96486.200          80354.390         
+S26_H_R_         96490.490          80362.000         
+S26_H_R_         96492.380          80365.340         
+S26_H_R_         96495.460          80370.790         
+S26_A_R_         96495.460          80370.790         
+S26_A_R_         96495.760          80370.690         
+S26_A_R_         96511.580          80362.000         
+S26_A_R_         96522.360          80356.080         
+S26_A_R_         96512.530          80339.130         
+S26_A_R_         96486.200          80354.390         
+S26_A_R_         96490.490          80362.000         
+S26_A_R_         96492.380          80365.340         
+S26_A_R_         96495.460          80370.790         
+S27_G_M_         96572.560          80304.260         
+S27_G_M_         96558.960          80312.100         
+S27_G_M_         96553.380          80315.320         
+S27_G_M_         96547.800          80318.540         
+S27_G_M_         96542.220          80321.750         
+S27_G_M_         96536.640          80324.970         
+S27_G_M_         96531.060          80328.190         
+S27_G_M_         96525.480          80331.410         
+S27_G_M_         96516.820          80336.410         
+S27_G_M_         96526.640          80353.440         
+S27_G_M_         96531.080          80362.000         
+S27_G_M_         96540.440          80380.030         
+S27_G_M_         96553.810          80407.970         
+S27_G_M_         96560.840          80411.120         
+S27_G_M_         96608.740          80397.950         
+S27_G_M_         96613.780          80395.150         
+S27_G_M_         96617.780          80388.400         
+S27_G_M_         96605.840          80367.160         
+S27_G_M_         96603.110          80362.000         
+S27_G_M_         96572.560          80304.260         
+S27_H_M_         96572.560          80304.260         
+S27_H_M_         96558.960          80312.100         
+S27_H_M_         96553.380          80315.320         
+S27_H_M_         96547.800          80318.540         
+S27_H_M_         96542.220          80321.750         
+S27_H_M_         96536.640          80324.970         
+S27_H_M_         96531.060          80328.190         
+S27_H_M_         96525.480          80331.410         
+S27_H_M_         96516.820          80336.410         
+S27_H_M_         96526.640          80353.440         
+S27_H_M_         96531.080          80362.000         
+S27_H_M_         96540.440          80380.030         
+S27_H_M_         96553.810          80407.970         
+S27_H_M_         96560.840          80411.120         
+S27_H_M_         96608.740          80397.950         
+S27_H_M_         96613.780          80395.150         
+S27_H_M_         96617.780          80388.400         
+S27_H_M_         96605.840          80367.160         
+S27_H_M_         96603.110          80362.000         
+S27_H_M_         96572.560          80304.260         
+S27_A_M_         96572.560          80304.260         
+S27_A_M_         96558.960          80312.100         
+S27_A_M_         96553.380          80315.320         
+S27_A_M_         96547.800          80318.540         
+S27_A_M_         96542.220          80321.750         
+S27_A_M_         96536.640          80324.970         
+S27_A_M_         96531.060          80328.190         
+S27_A_M_         96525.480          80331.410         
+S27_A_M_         96516.820          80336.410         
+S27_A_M_         96526.640          80353.440         
+S27_A_M_         96531.080          80362.000         
+S27_A_M_         96540.440          80380.030         
+S27_A_M_         96553.810          80407.970         
+S27_A_M_         96560.840          80411.120         
+S27_A_M_         96608.740          80397.950         
+S27_A_M_         96613.780          80395.150         
+S27_A_M_         96617.780          80388.400         
+S27_A_M_         96605.840          80367.160         
+S27_A_M_         96603.110          80362.000         
+S27_A_M_         96572.560          80304.260         
+S28_G_R_         96549.780          80290.850         
+S28_G_R_         96561.530          80284.060         
+S28_G_R_         96544.770          80257.490         
+S28_G_R_         96521.690          80228.040         
+S28_G_R_         96508.350          80213.200         
+S28_G_R_         96501.340          80216.370         
+S28_G_R_         96467.150          80254.760         
+S28_G_R_         96467.117          80254.798         
+S28_G_R_         96467.084          80254.836         
+S28_G_R_         96467.053          80254.875         
+S28_G_R_         96467.021          80254.915         
+S28_G_R_         96466.991          80254.955         
+S28_G_R_         96466.961          80254.996         
+S28_G_R_         96466.932          80255.037         
+S28_G_R_         96466.904          80255.078         
+S28_G_R_         96466.876          80255.120         
+S28_G_R_         96466.849          80255.163         
+S28_G_R_         96466.823          80255.206         
+S28_G_R_         96466.797          80255.249         
+S28_G_R_         96466.773          80255.293         
+S28_G_R_         96466.749          80255.337         
+S28_G_R_         96466.725          80255.382         
+S28_G_R_         96466.703          80255.427         
+S28_G_R_         96466.681          80255.473         
+S28_G_R_         96466.660          80255.518         
+S28_G_R_         96466.640          80255.565         
+S28_G_R_         96466.621          80255.611         
+S28_G_R_         96466.602          80255.658         
+S28_G_R_         96466.585          80255.705         
+S28_G_R_         96466.568          80255.752         
+S28_G_R_         96466.552          80255.800         
+S28_G_R_         96466.536          80255.848         
+S28_G_R_         96466.522          80255.896         
+S28_G_R_         96466.508          80255.945         
+S28_G_R_         96466.495          80255.994         
+S28_G_R_         96466.483          80256.042         
+S28_G_R_         96466.472          80256.092         
+S28_G_R_         96466.462          80256.141         
+S28_G_R_         96466.452          80256.190         
+S28_G_R_         96466.444          80256.240         
+S28_G_R_         96466.436          80256.290         
+S28_G_R_         96466.429          80256.340         
+S28_G_R_         96466.423          80256.390         
+S28_G_R_         96466.418          80256.440         
+S28_G_R_         96466.414          80256.490         
+S28_G_R_         96466.410          80256.540         
+S28_G_R_         96466.407          80256.590         
+S28_G_R_         96466.406          80256.641         
+S28_G_R_         96466.405          80256.691         
+S28_G_R_         96466.405          80256.742         
+S28_G_R_         96466.405          80256.792         
+S28_G_R_         96466.407          80256.843         
+S28_G_R_         96466.410          80256.893         
+S28_G_R_         96466.413          80256.943         
+S28_G_R_         96466.417          80256.994         
+S28_G_R_         96466.422          80257.044         
+S28_G_R_         96466.428          80257.094         
+S28_G_R_         96466.435          80257.144         
+S28_G_R_         96466.443          80257.194         
+S28_G_R_         96466.451          80257.243         
+S28_G_R_         96466.461          80257.293         
+S28_G_R_         96466.471          80257.342         
+S28_G_R_         96466.482          80257.392         
+S28_G_R_         96466.494          80257.441         
+S28_G_R_         96466.507          80257.489         
+S28_G_R_         96466.520          80257.538         
+S28_G_R_         96466.535          80257.586         
+S28_G_R_         96466.550          80257.634         
+S28_G_R_         96466.566          80257.682         
+S28_G_R_         96466.583          80257.730         
+S28_G_R_         96466.601          80257.777         
+S28_G_R_         96466.619          80257.824         
+S28_G_R_         96466.638          80257.871         
+S28_G_R_         96466.658          80257.917         
+S28_G_R_         96466.679          80257.963         
+S28_G_R_         96466.701          80258.008         
+S28_G_R_         96466.723          80258.054         
+S28_G_R_         96466.747          80258.098         
+S28_G_R_         96466.771          80258.143         
+S28_G_R_         96466.795          80258.187         
+S28_G_R_         96466.821          80258.230         
+S28_G_R_         96466.847          80258.273         
+S28_G_R_         96466.874          80258.316         
+S28_G_R_         96466.902          80258.358         
+S28_G_R_         96466.930          80258.400         
+S28_G_R_         96479.270          80276.700         
+S28_G_R_         96496.260          80301.620         
+S28_G_R_         96505.420          80316.430         
+S28_G_R_         96516.280          80310.160         
+S28_G_R_         96521.870          80306.940         
+S28_G_R_         96527.450          80303.720         
+S28_G_R_         96533.030          80300.500         
+S28_G_R_         96538.620          80297.280         
+S28_G_R_         96544.200          80294.070         
+S28_G_R_         96549.780          80290.850         
+S28_H_R_         96549.780          80290.850         
+S28_H_R_         96561.530          80284.060         
+S28_H_R_         96544.770          80257.490         
+S28_H_R_         96521.690          80228.040         
+S28_H_R_         96508.350          80213.200         
+S28_H_R_         96501.340          80216.370         
+S28_H_R_         96467.150          80254.760         
+S28_H_R_         96467.117          80254.798         
+S28_H_R_         96467.084          80254.836         
+S28_H_R_         96467.053          80254.875         
+S28_H_R_         96467.021          80254.915         
+S28_H_R_         96466.991          80254.955         
+S28_H_R_         96466.961          80254.996         
+S28_H_R_         96466.932          80255.037         
+S28_H_R_         96466.904          80255.078         
+S28_H_R_         96466.876          80255.120         
+S28_H_R_         96466.849          80255.163         
+S28_H_R_         96466.823          80255.206         
+S28_H_R_         96466.797          80255.249         
+S28_H_R_         96466.773          80255.293         
+S28_H_R_         96466.749          80255.337         
+S28_H_R_         96466.725          80255.382         
+S28_H_R_         96466.703          80255.427         
+S28_H_R_         96466.681          80255.473         
+S28_H_R_         96466.660          80255.518         
+S28_H_R_         96466.640          80255.565         
+S28_H_R_         96466.621          80255.611         
+S28_H_R_         96466.602          80255.658         
+S28_H_R_         96466.585          80255.705         
+S28_H_R_         96466.568          80255.752         
+S28_H_R_         96466.552          80255.800         
+S28_H_R_         96466.536          80255.848         
+S28_H_R_         96466.522          80255.896         
+S28_H_R_         96466.508          80255.945         
+S28_H_R_         96466.495          80255.994         
+S28_H_R_         96466.483          80256.042         
+S28_H_R_         96466.472          80256.092         
+S28_H_R_         96466.462          80256.141         
+S28_H_R_         96466.452          80256.190         
+S28_H_R_         96466.444          80256.240         
+S28_H_R_         96466.436          80256.290         
+S28_H_R_         96466.429          80256.340         
+S28_H_R_         96466.423          80256.390         
+S28_H_R_         96466.418          80256.440         
+S28_H_R_         96466.414          80256.490         
+S28_H_R_         96466.410          80256.540         
+S28_H_R_         96466.407          80256.590         
+S28_H_R_         96466.406          80256.641         
+S28_H_R_         96466.405          80256.691         
+S28_H_R_         96466.405          80256.742         
+S28_H_R_         96466.405          80256.792         
+S28_H_R_         96466.407          80256.843         
+S28_H_R_         96466.410          80256.893         
+S28_H_R_         96466.413          80256.943         
+S28_H_R_         96466.417          80256.994         
+S28_H_R_         96466.422          80257.044         
+S28_H_R_         96466.428          80257.094         
+S28_H_R_         96466.435          80257.144         
+S28_H_R_         96466.443          80257.194         
+S28_H_R_         96466.451          80257.243         
+S28_H_R_         96466.461          80257.293         
+S28_H_R_         96466.471          80257.342         
+S28_H_R_         96466.482          80257.392         
+S28_H_R_         96466.494          80257.441         
+S28_H_R_         96466.507          80257.489         
+S28_H_R_         96466.520          80257.538         
+S28_H_R_         96466.535          80257.586         
+S28_H_R_         96466.550          80257.634         
+S28_H_R_         96466.566          80257.682         
+S28_H_R_         96466.583          80257.730         
+S28_H_R_         96466.601          80257.777         
+S28_H_R_         96466.619          80257.824         
+S28_H_R_         96466.638          80257.871         
+S28_H_R_         96466.658          80257.917         
+S28_H_R_         96466.679          80257.963         
+S28_H_R_         96466.701          80258.008         
+S28_H_R_         96466.723          80258.054         
+S28_H_R_         96466.747          80258.098         
+S28_H_R_         96466.771          80258.143         
+S28_H_R_         96466.795          80258.187         
+S28_H_R_         96466.821          80258.230         
+S28_H_R_         96466.847          80258.273         
+S28_H_R_         96466.874          80258.316         
+S28_H_R_         96466.902          80258.358         
+S28_H_R_         96466.930          80258.400         
+S28_H_R_         96479.270          80276.700         
+S28_H_R_         96496.260          80301.620         
+S28_H_R_         96505.420          80316.430         
+S28_H_R_         96516.280          80310.160         
+S28_H_R_         96521.870          80306.940         
+S28_H_R_         96527.450          80303.720         
+S28_H_R_         96533.030          80300.500         
+S28_H_R_         96538.620          80297.280         
+S28_H_R_         96544.200          80294.070         
+S28_H_R_         96549.780          80290.850         
+S28_A_R_         96549.780          80290.850         
+S28_A_R_         96561.530          80284.060         
+S28_A_R_         96544.770          80257.490         
+S28_A_R_         96521.690          80228.040         
+S28_A_R_         96508.350          80213.200         
+S28_A_R_         96501.340          80216.370         
+S28_A_R_         96467.150          80254.760         
+S28_A_R_         96467.117          80254.798         
+S28_A_R_         96467.084          80254.836         
+S28_A_R_         96467.053          80254.875         
+S28_A_R_         96467.021          80254.915         
+S28_A_R_         96466.991          80254.955         
+S28_A_R_         96466.961          80254.996         
+S28_A_R_         96466.932          80255.037         
+S28_A_R_         96466.904          80255.078         
+S28_A_R_         96466.876          80255.120         
+S28_A_R_         96466.849          80255.163         
+S28_A_R_         96466.823          80255.206         
+S28_A_R_         96466.797          80255.249         
+S28_A_R_         96466.773          80255.293         
+S28_A_R_         96466.749          80255.337         
+S28_A_R_         96466.725          80255.382         
+S28_A_R_         96466.703          80255.427         
+S28_A_R_         96466.681          80255.473         
+S28_A_R_         96466.660          80255.518         
+S28_A_R_         96466.640          80255.565         
+S28_A_R_         96466.621          80255.611         
+S28_A_R_         96466.602          80255.658         
+S28_A_R_         96466.585          80255.705         
+S28_A_R_         96466.568          80255.752         
+S28_A_R_         96466.552          80255.800         
+S28_A_R_         96466.536          80255.848         
+S28_A_R_         96466.522          80255.896         
+S28_A_R_         96466.508          80255.945         
+S28_A_R_         96466.495          80255.994         
+S28_A_R_         96466.483          80256.042         
+S28_A_R_         96466.472          80256.092         
+S28_A_R_         96466.462          80256.141         
+S28_A_R_         96466.452          80256.190         
+S28_A_R_         96466.444          80256.240         
+S28_A_R_         96466.436          80256.290         
+S28_A_R_         96466.429          80256.340         
+S28_A_R_         96466.423          80256.390         
+S28_A_R_         96466.418          80256.440         
+S28_A_R_         96466.414          80256.490         
+S28_A_R_         96466.410          80256.540         
+S28_A_R_         96466.407          80256.590         
+S28_A_R_         96466.406          80256.641         
+S28_A_R_         96466.405          80256.691         
+S28_A_R_         96466.405          80256.742         
+S28_A_R_         96466.405          80256.792         
+S28_A_R_         96466.407          80256.843         
+S28_A_R_         96466.410          80256.893         
+S28_A_R_         96466.413          80256.943         
+S28_A_R_         96466.417          80256.994         
+S28_A_R_         96466.422          80257.044         
+S28_A_R_         96466.428          80257.094         
+S28_A_R_         96466.435          80257.144         
+S28_A_R_         96466.443          80257.194         
+S28_A_R_         96466.451          80257.243         
+S28_A_R_         96466.461          80257.293         
+S28_A_R_         96466.471          80257.342         
+S28_A_R_         96466.482          80257.392         
+S28_A_R_         96466.494          80257.441         
+S28_A_R_         96466.507          80257.489         
+S28_A_R_         96466.520          80257.538         
+S28_A_R_         96466.535          80257.586         
+S28_A_R_         96466.550          80257.634         
+S28_A_R_         96466.566          80257.682         
+S28_A_R_         96466.583          80257.730         
+S28_A_R_         96466.601          80257.777         
+S28_A_R_         96466.619          80257.824         
+S28_A_R_         96466.638          80257.871         
+S28_A_R_         96466.658          80257.917         
+S28_A_R_         96466.679          80257.963         
+S28_A_R_         96466.701          80258.008         
+S28_A_R_         96466.723          80258.054         
+S28_A_R_         96466.747          80258.098         
+S28_A_R_         96466.771          80258.143         
+S28_A_R_         96466.795          80258.187         
+S28_A_R_         96466.821          80258.230         
+S28_A_R_         96466.847          80258.273         
+S28_A_R_         96466.874          80258.316         
+S28_A_R_         96466.902          80258.358         
+S28_A_R_         96466.930          80258.400         
+S28_A_R_         96479.270          80276.700         
+S28_A_R_         96496.260          80301.620         
+S28_A_R_         96505.420          80316.430         
+S28_A_R_         96516.280          80310.160         
+S28_A_R_         96521.870          80306.940         
+S28_A_R_         96527.450          80303.720         
+S28_A_R_         96533.030          80300.500         
+S28_A_R_         96538.620          80297.280         
+S28_A_R_         96544.200          80294.070         
+S28_A_R_         96549.780          80290.850         
+S29_G_R_         96523.250          80332.698         
+S29_G_R_         96525.480          80331.410         
+S29_G_R_         96523.250          80326.258         
+S29_G_R_         96523.250          80332.698         
+S29_H_R_         96516.820          80336.410         
+S29_H_R_         96525.480          80331.410         
+S29_H_R_         96516.280          80310.160         
+S29_H_R_         96505.420          80316.430         
+S29_H_R_         96516.820          80336.410         
+S29_A_R_         96516.280          80310.160         
+S29_A_R_         96505.420          80316.430         
+S29_A_R_         96504.990          80316.680         
+S29_A_R_         96511.680          80327.500         
+S29_A_R_         96516.820          80336.410         
+S29_A_R_         96523.250          80332.698         
+S29_A_R_         96523.250          80326.258         
+S29_A_R_         96523.160          80326.050         
+S29_A_R_         96519.060          80316.590         
+S29_A_R_         96516.280          80310.160         
+S3_G_R_          96511.740          80403.030         
+S3_G_R_          96509.430          80398.140         
+S3_G_R_          96496.590          80403.150         
+S3_G_R_          96490.970          80405.340         
+S3_G_R_          96480.470          80409.440         
+S3_G_R_          96488.030          80425.120         
+S3_G_R_          96495.120          80428.700         
+S3_G_R_          96520.630          80421.860         
+S3_G_R_          96518.140          80416.580         
+S3_G_R_          96515.320          80410.610         
+S3_G_R_          96515.070          80410.090         
+S3_G_R_          96511.740          80403.030         
+S3_H_R_          96511.740          80403.030         
+S3_H_R_          96509.430          80398.140         
+S3_H_R_          96496.590          80403.150         
+S3_H_R_          96490.970          80405.340         
+S3_H_R_          96480.470          80409.440         
+S3_H_R_          96488.030          80425.120         
+S3_H_R_          96495.120          80428.700         
+S3_H_R_          96520.630          80421.860         
+S3_H_R_          96518.140          80416.580         
+S3_H_R_          96515.320          80410.610         
+S3_H_R_          96515.070          80410.090         
+S3_H_R_          96511.740          80403.030         
+S3_A_R_          96511.740          80403.030         
+S3_A_R_          96509.430          80398.140         
+S3_A_R_          96496.590          80403.150         
+S3_A_R_          96490.970          80405.340         
+S3_A_R_          96480.470          80409.440         
+S3_A_R_          96488.030          80425.120         
+S3_A_R_          96495.120          80428.700         
+S3_A_R_          96520.630          80421.860         
+S3_A_R_          96518.140          80416.580         
+S3_A_R_          96515.320          80410.610         
+S3_A_R_          96515.070          80410.090         
+S3_A_R_          96511.740          80403.030         
+S30_G_R_         96521.870          80306.940         
+S30_G_R_         96516.280          80310.160         
+S30_G_R_         96519.060          80316.590         
+S30_G_R_         96523.160          80326.050         
+S30_G_R_         96525.480          80331.410         
+S30_G_R_         96531.060          80328.190         
+S30_G_R_         96529.030          80323.490         
+S30_G_R_         96528.430          80322.110         
+S30_G_R_         96525.440          80315.200         
+S30_G_R_         96524.860          80313.850         
+S30_G_R_         96521.870          80306.940         
+S30_H_R_         96521.870          80306.940         
+S30_H_R_         96516.280          80310.160         
+S30_H_R_         96519.060          80316.590         
+S30_H_R_         96523.160          80326.050         
+S30_H_R_         96525.480          80331.410         
+S30_H_R_         96531.060          80328.190         
+S30_H_R_         96529.030          80323.490         
+S30_H_R_         96528.430          80322.110         
+S30_H_R_         96525.440          80315.200         
+S30_H_R_         96524.860          80313.850         
+S30_H_R_         96521.870          80306.940         
+S30_A_R_         96521.870          80306.940         
+S30_A_R_         96516.280          80310.160         
+S30_A_R_         96519.060          80316.590         
+S30_A_R_         96523.160          80326.050         
+S30_A_R_         96525.480          80331.410         
+S30_A_R_         96531.060          80328.190         
+S30_A_R_         96529.030          80323.490         
+S30_A_R_         96528.430          80322.110         
+S30_A_R_         96525.440          80315.200         
+S30_A_R_         96524.860          80313.850         
+S30_A_R_         96521.870          80306.940         
+S31_G_R_         96527.450          80303.720         
+S31_G_R_         96521.870          80306.940         
+S31_G_R_         96524.860          80313.850         
+S31_G_R_         96525.440          80315.200         
+S31_G_R_         96528.430          80322.110         
+S31_G_R_         96529.030          80323.490         
+S31_G_R_         96531.060          80328.190         
+S31_G_R_         96536.640          80324.970         
+S31_G_R_         96534.300          80319.570         
+S31_G_R_         96530.230          80310.140         
+S31_G_R_         96527.450          80303.720         
+S31_H_R_         96527.450          80303.720         
+S31_H_R_         96521.870          80306.940         
+S31_H_R_         96524.860          80313.850         
+S31_H_R_         96525.440          80315.200         
+S31_H_R_         96528.430          80322.110         
+S31_H_R_         96529.030          80323.490         
+S31_H_R_         96531.060          80328.190         
+S31_H_R_         96536.640          80324.970         
+S31_H_R_         96534.300          80319.570         
+S31_H_R_         96530.230          80310.140         
+S31_H_R_         96527.450          80303.720         
+S31_A_R_         96527.450          80303.720         
+S31_A_R_         96521.870          80306.940         
+S31_A_R_         96524.860          80313.850         
+S31_A_R_         96525.440          80315.200         
+S31_A_R_         96528.430          80322.110         
+S31_A_R_         96529.030          80323.490         
+S31_A_R_         96531.060          80328.190         
+S31_A_R_         96536.640          80324.970         
+S31_A_R_         96534.300          80319.570         
+S31_A_R_         96530.230          80310.140         
+S31_A_R_         96527.450          80303.720         
+S32_G_R_         96533.030          80300.500         
+S32_G_R_         96527.450          80303.720         
+S32_G_R_         96530.230          80310.140         
+S32_G_R_         96534.300          80319.570         
+S32_G_R_         96536.640          80324.970         
+S32_G_R_         96542.220          80321.750         
+S32_G_R_         96540.180          80317.030         
+S32_G_R_         96539.610          80315.710         
+S32_G_R_         96536.600          80308.760         
+S32_G_R_         96536.030          80307.430         
+S32_G_R_         96533.030          80300.500         
+S32_H_R_         96533.030          80300.500         
+S32_H_R_         96527.450          80303.720         
+S32_H_R_         96530.230          80310.140         
+S32_H_R_         96534.300          80319.570         
+S32_H_R_         96536.640          80324.970         
+S32_H_R_         96542.220          80321.750         
+S32_H_R_         96540.180          80317.030         
+S32_H_R_         96539.610          80315.710         
+S32_H_R_         96536.600          80308.760         
+S32_H_R_         96536.030          80307.430         
+S32_H_R_         96533.030          80300.500         
+S32_A_R_         96533.030          80300.500         
+S32_A_R_         96527.450          80303.720         
+S32_A_R_         96530.230          80310.140         
+S32_A_R_         96534.300          80319.570         
+S32_A_R_         96536.640          80324.970         
+S32_A_R_         96542.220          80321.750         
+S32_A_R_         96540.180          80317.030         
+S32_A_R_         96539.610          80315.710         
+S32_A_R_         96536.600          80308.760         
+S32_A_R_         96536.030          80307.430         
+S32_A_R_         96533.030          80300.500         
+S33_G_R_         96538.620          80297.280         
+S33_G_R_         96533.030          80300.500         
+S33_G_R_         96536.030          80307.430         
+S33_G_R_         96536.600          80308.760         
+S33_G_R_         96539.610          80315.710         
+S33_G_R_         96540.180          80317.030         
+S33_G_R_         96542.220          80321.750         
+S33_G_R_         96547.800          80318.540         
+S33_G_R_         96545.490          80313.190         
+S33_G_R_         96541.890          80304.860         
+S33_G_R_         96541.400          80303.720         
+S33_G_R_         96538.620          80297.280         
+S33_H_R_         96538.620          80297.280         
+S33_H_R_         96533.030          80300.500         
+S33_H_R_         96536.030          80307.430         
+S33_H_R_         96536.600          80308.760         
+S33_H_R_         96539.610          80315.710         
+S33_H_R_         96540.180          80317.030         
+S33_H_R_         96542.220          80321.750         
+S33_H_R_         96547.800          80318.540         
+S33_H_R_         96545.490          80313.190         
+S33_H_R_         96541.890          80304.860         
+S33_H_R_         96541.400          80303.720         
+S33_H_R_         96538.620          80297.280         
+S33_A_R_         96538.620          80297.280         
+S33_A_R_         96533.030          80300.500         
+S33_A_R_         96536.030          80307.430         
+S33_A_R_         96536.600          80308.760         
+S33_A_R_         96539.610          80315.710         
+S33_A_R_         96540.180          80317.030         
+S33_A_R_         96542.220          80321.750         
+S33_A_R_         96547.800          80318.540         
+S33_A_R_         96545.490          80313.190         
+S33_A_R_         96541.890          80304.860         
+S33_A_R_         96541.400          80303.720         
+S33_A_R_         96538.620          80297.280         
+S35_G_R_         96549.780          80290.850         
+S35_G_R_         96544.200          80294.070         
+S35_G_R_         96547.190          80300.990         
+S35_G_R_         96547.770          80302.340         
+S35_G_R_         96550.760          80309.250         
+S35_G_R_         96551.350          80310.630         
+S35_G_R_         96553.380          80315.320         
+S35_G_R_         96558.960          80312.100         
+S35_G_R_         96556.630          80306.700         
+S35_G_R_         96553.050          80298.430         
+S35_G_R_         96552.550          80297.270         
+S35_G_R_         96549.780          80290.850         
+S34_G_R_         96544.200          80294.070         
+S34_G_R_         96538.620          80297.280         
+S34_G_R_         96541.400          80303.720         
+S34_G_R_         96541.890          80304.860         
+S34_G_R_         96545.490          80313.190         
+S34_G_R_         96547.800          80318.540         
+S34_G_R_         96553.380          80315.320         
+S34_G_R_         96551.350          80310.630         
+S34_G_R_         96550.760          80309.250         
+S34_G_R_         96547.770          80302.340         
+S34_G_R_         96547.190          80300.990         
+S34_G_R_         96544.200          80294.070         
+S34_H_R_         96544.200          80294.070         
+S34_H_R_         96538.620          80297.280         
+S34_H_R_         96541.400          80303.720         
+S34_H_R_         96541.890          80304.860         
+S34_H_R_         96545.490          80313.190         
+S34_H_R_         96547.800          80318.540         
+S34_H_R_         96553.380          80315.320         
+S34_H_R_         96551.350          80310.630         
+S34_H_R_         96550.760          80309.250         
+S34_H_R_         96547.770          80302.340         
+S34_H_R_         96547.190          80300.990         
+S34_H_R_         96544.200          80294.070         
+S34_A_R_         96544.200          80294.070         
+S34_A_R_         96538.620          80297.280         
+S34_A_R_         96541.400          80303.720         
+S34_A_R_         96541.890          80304.860         
+S34_A_R_         96545.490          80313.190         
+S34_A_R_         96547.800          80318.540         
+S34_A_R_         96553.380          80315.320         
+S34_A_R_         96551.350          80310.630         
+S34_A_R_         96550.760          80309.250         
+S34_A_R_         96547.770          80302.340         
+S34_A_R_         96547.190          80300.990         
+S34_A_R_         96544.200          80294.070         
+S35_H_R_         96549.780          80290.850         
+S35_H_R_         96544.200          80294.070         
+S35_H_R_         96547.190          80300.990         
+S35_H_R_         96547.770          80302.340         
+S35_H_R_         96550.760          80309.250         
+S35_H_R_         96551.350          80310.630         
+S35_H_R_         96553.380          80315.320         
+S35_H_R_         96558.960          80312.100         
+S35_H_R_         96556.630          80306.700         
+S35_H_R_         96553.050          80298.430         
+S35_H_R_         96552.550          80297.270         
+S35_H_R_         96549.780          80290.850         
+S35_A_R_         96549.780          80290.850         
+S35_A_R_         96544.200          80294.070         
+S35_A_R_         96547.190          80300.990         
+S35_A_R_         96547.770          80302.340         
+S35_A_R_         96550.760          80309.250         
+S35_A_R_         96551.350          80310.630         
+S35_A_R_         96553.380          80315.320         
+S35_A_R_         96558.960          80312.100         
+S35_A_R_         96556.630          80306.700         
+S35_A_R_         96553.050          80298.430         
+S35_A_R_         96552.550          80297.270         
+S35_A_R_         96549.780          80290.850         
+S36_G_R_         96561.530          80284.060         
+S36_G_R_         96549.780          80290.850         
+S36_G_R_         96552.550          80297.270         
+S36_G_R_         96553.050          80298.430         
+S36_G_R_         96556.630          80306.700         
+S36_G_R_         96558.960          80312.100         
+S36_G_R_         96572.560          80304.260         
+S36_G_R_         96563.670          80287.440         
+S36_G_R_         96561.530          80284.060         
+S36_H_R_         96561.530          80284.060         
+S36_H_R_         96549.780          80290.850         
+S36_H_R_         96552.550          80297.270         
+S36_H_R_         96553.050          80298.430         
+S36_H_R_         96556.630          80306.700         
+S36_H_R_         96558.960          80312.100         
+S36_H_R_         96572.560          80304.260         
+S36_H_R_         96563.670          80287.440         
+S36_H_R_         96561.530          80284.060         
+S36_A_R_         96561.530          80284.060         
+S36_A_R_         96549.780          80290.850         
+S36_A_R_         96552.550          80297.270         
+S36_A_R_         96553.050          80298.430         
+S36_A_R_         96556.630          80306.700         
+S36_A_R_         96558.960          80312.100         
+S36_A_R_         96572.560          80304.260         
+S36_A_R_         96563.670          80287.440         
+S36_A_R_         96561.530          80284.060         
+S37_G_R_         96562.960          80415.490         
+S37_G_R_         96557.640          80416.920         
+S37_G_R_         96551.840          80418.480         
+S37_G_R_         96557.540          80444.430         
+S37_G_R_         96556.010          80444.770         
+S37_G_R_         96552.290          80445.760         
+S37_G_R_         96547.040          80447.170         
+S37_G_R_         96541.780          80448.570         
+S37_G_R_         96536.530          80449.970         
+S37_G_R_         96531.270          80451.380         
+S37_G_R_         96522.940          80453.600         
+S37_G_R_         96515.290          80428.470         
+S37_G_R_         96513.840          80428.870         
+S37_G_R_         96522.150          80456.140         
+S37_G_R_         96555.480          80447.240         
+S37_G_R_         96563.900          80445.390         
+S37_G_R_         96569.270          80444.210         
+S37_G_R_         96568.810          80442.110         
+S37_G_R_         96567.760          80437.320         
+S37_G_R_         96566.710          80432.540         
+S37_G_R_         96565.650          80427.750         
+S37_G_R_         96564.600          80422.970         
+S37_G_R_         96563.550          80418.180         
+S37_G_R_         96562.960          80415.490         
+S37_H_R_         96562.960          80415.490         
+S37_H_R_         96557.640          80416.920         
+S37_H_R_         96551.840          80418.480         
+S37_H_R_         96557.540          80444.430         
+S37_H_R_         96556.010          80444.770         
+S37_H_R_         96552.290          80445.760         
+S37_H_R_         96547.040          80447.170         
+S37_H_R_         96541.780          80448.570         
+S37_H_R_         96536.530          80449.970         
+S37_H_R_         96531.270          80451.380         
+S37_H_R_         96522.940          80453.600         
+S37_H_R_         96515.290          80428.470         
+S37_H_R_         96513.840          80428.870         
+S37_H_R_         96522.150          80456.140         
+S37_H_R_         96555.480          80447.240         
+S37_H_R_         96563.900          80445.390         
+S37_H_R_         96569.270          80444.210         
+S37_H_R_         96568.810          80442.110         
+S37_H_R_         96567.760          80437.320         
+S37_H_R_         96566.710          80432.540         
+S37_H_R_         96565.650          80427.750         
+S37_H_R_         96564.600          80422.970         
+S37_H_R_         96563.550          80418.180         
+S37_H_R_         96562.960          80415.490         
+S37_A_R_         96562.960          80415.490         
+S37_A_R_         96557.640          80416.920         
+S37_A_R_         96551.840          80418.480         
+S37_A_R_         96557.540          80444.430         
+S37_A_R_         96556.010          80444.770         
+S37_A_R_         96552.290          80445.760         
+S37_A_R_         96547.040          80447.170         
+S37_A_R_         96541.780          80448.570         
+S37_A_R_         96536.530          80449.970         
+S37_A_R_         96531.270          80451.380         
+S37_A_R_         96522.940          80453.600         
+S37_A_R_         96515.290          80428.470         
+S37_A_R_         96513.840          80428.870         
+S37_A_R_         96522.150          80456.140         
+S37_A_R_         96555.480          80447.240         
+S37_A_R_         96563.900          80445.390         
+S37_A_R_         96569.270          80444.210         
+S37_A_R_         96568.810          80442.110         
+S37_A_R_         96567.760          80437.320         
+S37_A_R_         96566.710          80432.540         
+S37_A_R_         96565.650          80427.750         
+S37_A_R_         96564.600          80422.970         
+S37_A_R_         96563.550          80418.180         
+S37_A_R_         96562.960          80415.490         
+S38_G_R_         96524.480          80425.960         
+S38_G_R_         96515.290          80428.470         
+S38_G_R_         96522.940          80453.600         
+S38_G_R_         96531.270          80451.380         
+S38_G_R_         96524.480          80425.960         
+S38_H_R_         96524.480          80425.960         
+S38_H_R_         96515.290          80428.470         
+S38_H_R_         96522.940          80453.600         
+S38_H_R_         96531.270          80451.380         
+S38_H_R_         96524.480          80425.960         
+S38_A_R_         96524.480          80425.960         
+S38_A_R_         96515.290          80428.470         
+S38_A_R_         96522.940          80453.600         
+S38_A_R_         96531.270          80451.380         
+S38_A_R_         96524.480          80425.960         
+S39_G_R_         96529.730          80424.520         
+S39_G_R_         96524.480          80425.960         
+S39_G_R_         96531.270          80451.380         
+S39_G_R_         96536.530          80449.970         
+S39_G_R_         96529.730          80424.520         
+S39_H_R_         96529.730          80424.520         
+S39_H_R_         96524.480          80425.960         
+S39_H_R_         96531.270          80451.380         
+S39_H_R_         96536.530          80449.970         
+S39_H_R_         96529.730          80424.520         
+S39_A_R_         96529.730          80424.520         
+S39_A_R_         96524.480          80425.960         
+S39_A_R_         96531.270          80451.380         
+S39_A_R_         96536.530          80449.970         
+S39_A_R_         96529.730          80424.520         
+S4_G_R_          96457.520          80364.750         
+S4_G_R_          96468.260          80384.600         
+S4_G_R_          96490.180          80373.470         
+S4_G_R_          96495.460          80370.790         
+S4_G_R_          96492.380          80365.340         
+S4_G_R_          96490.490          80362.000         
+S4_G_R_          96486.200          80354.390         
+S4_G_R_          96484.390          80351.180         
+S4_G_R_          96479.120          80353.840         
+S4_G_R_          96478.760          80354.020         
+S4_G_R_          96462.960          80362.000         
+S4_G_R_          96457.520          80364.750         
+S4_H_R_          96457.520          80364.750         
+S4_H_R_          96468.260          80384.600         
+S4_H_R_          96490.180          80373.470         
+S4_H_R_          96495.460          80370.790         
+S4_H_R_          96492.380          80365.340         
+S4_H_R_          96490.490          80362.000         
+S4_H_R_          96486.200          80354.390         
+S4_H_R_          96484.390          80351.180         
+S4_H_R_          96479.120          80353.840         
+S4_H_R_          96478.760          80354.020         
+S4_H_R_          96462.960          80362.000         
+S4_H_R_          96457.520          80364.750         
+S4_A_R_          96457.520          80364.750         
+S4_A_R_          96468.260          80384.600         
+S4_A_R_          96490.180          80373.470         
+S4_A_R_          96495.460          80370.790         
+S4_A_R_          96492.380          80365.340         
+S4_A_R_          96490.490          80362.000         
+S4_A_R_          96486.200          80354.390         
+S4_A_R_          96484.390          80351.180         
+S4_A_R_          96479.120          80353.840         
+S4_A_R_          96478.760          80354.020         
+S4_A_R_          96462.960          80362.000         
+S4_A_R_          96457.520          80364.750         
+S40_G_R_         96534.970          80423.080         
+S40_G_R_         96529.730          80424.520         
+S40_G_R_         96536.530          80449.970         
+S40_G_R_         96541.780          80448.570         
+S40_G_R_         96534.970          80423.080         
+S40_H_R_         96534.970          80423.080         
+S40_H_R_         96529.730          80424.520         
+S40_H_R_         96536.530          80449.970         
+S40_H_R_         96541.780          80448.570         
+S40_H_R_         96534.970          80423.080         
+S40_A_R_         96534.970          80423.080         
+S40_A_R_         96529.730          80424.520         
+S40_A_R_         96536.530          80449.970         
+S40_A_R_         96541.780          80448.570         
+S40_A_R_         96534.970          80423.080         
+S41_G_R_         96540.220          80421.640         
+S41_G_R_         96534.970          80423.080         
+S41_G_R_         96541.780          80448.570         
+S41_G_R_         96547.040          80447.170         
+S41_G_R_         96540.220          80421.640         
+S41_H_R_         96540.220          80421.640         
+S41_H_R_         96534.970          80423.080         
+S41_H_R_         96541.780          80448.570         
+S41_H_R_         96547.040          80447.170         
+S41_H_R_         96540.220          80421.640         
+S41_A_R_         96540.220          80421.640         
+S41_A_R_         96534.970          80423.080         
+S41_A_R_         96541.780          80448.570         
+S41_A_R_         96547.040          80447.170         
+S41_A_R_         96540.220          80421.640         
+S42_G_R_         96545.470          80420.210         
+S42_G_R_         96540.220          80421.640         
+S42_G_R_         96547.040          80447.170         
+S42_G_R_         96552.290          80445.760         
+S42_G_R_         96545.470          80420.210         
+S42_H_R_         96545.470          80420.210         
+S42_H_R_         96540.220          80421.640         
+S42_H_R_         96547.040          80447.170         
+S42_H_R_         96552.290          80445.760         
+S42_H_R_         96545.470          80420.210         
+S42_A_R_         96545.470          80420.210         
+S42_A_R_         96540.220          80421.640         
+S42_A_R_         96547.040          80447.170         
+S42_A_R_         96552.290          80445.760         
+S42_A_R_         96545.470          80420.210         
+S43_G_R_         96551.840          80418.480         
+S43_G_R_         96548.080          80419.490         
+S43_G_R_         96545.470          80420.210         
+S43_G_R_         96552.290          80445.760         
+S43_G_R_         96556.010          80444.770         
+S43_G_R_         96557.540          80444.430         
+S43_G_R_         96551.840          80418.480         
+S43_H_R_         96551.840          80418.480         
+S43_H_R_         96548.080          80419.490         
+S43_H_R_         96545.470          80420.210         
+S43_H_R_         96552.290          80445.760         
+S43_H_R_         96556.010          80444.770         
+S43_H_R_         96557.540          80444.430         
+S43_H_R_         96551.840          80418.480         
+S43_A_R_         96551.840          80418.480         
+S43_A_R_         96548.080          80419.490         
+S43_A_R_         96545.470          80420.210         
+S43_A_R_         96552.290          80445.760         
+S43_A_R_         96556.010          80444.770         
+S43_A_R_         96557.540          80444.430         
+S43_A_R_         96551.840          80418.480         
+S44_G_R_         96513.840          80428.870         
+S44_G_R_         96495.400          80433.930         
+S44_G_R_         96501.050          80455.050         
+S44_G_R_         96502.730          80461.330         
+S44_G_R_         96522.150          80456.140         
+S44_G_R_         96513.840          80428.870         
+S44_H_R_         96513.840          80428.870         
+S44_H_R_         96495.400          80433.930         
+S44_H_R_         96501.050          80455.050         
+S44_H_R_         96502.730          80461.330         
+S44_H_R_         96522.150          80456.140         
+S44_H_R_         96513.840          80428.870         
+S44_A_R_         96513.840          80428.870         
+S44_A_R_         96495.400          80433.930         
+S44_A_R_         96501.050          80455.050         
+S44_A_R_         96502.730          80461.330         
+S44_A_R_         96522.150          80456.140         
+S44_A_R_         96513.840          80428.870         
+S45_G_R_         96495.400          80433.930         
+S45_G_R_         96477.770          80438.760         
+S45_G_R_         96474.770          80444.130         
+S45_G_R_         96484.330          80466.240         
+S45_G_R_         96495.690          80463.210         
+S45_G_R_         96502.730          80461.330         
+S45_G_R_         96501.050          80455.050         
+S45_G_R_         96495.400          80433.930         
+S45_H_R_         96495.400          80433.930         
+S45_H_R_         96477.770          80438.760         
+S45_H_R_         96474.770          80444.130         
+S45_H_R_         96484.330          80466.240         
+S45_H_R_         96495.690          80463.210         
+S45_H_R_         96502.730          80461.330         
+S45_H_R_         96501.050          80455.050         
+S45_H_R_         96495.400          80433.930         
+S45_A_R_         96495.400          80433.930         
+S45_A_R_         96477.770          80438.760         
+S45_A_R_         96474.770          80444.130         
+S45_A_R_         96484.330          80466.240         
+S45_A_R_         96495.690          80463.210         
+S45_A_R_         96502.730          80461.330         
+S45_A_R_         96501.050          80455.050         
+S45_A_R_         96495.400          80433.930         
+S5_G_R_          96440.500          80374.410         
+S5_G_R_          96438.360          80375.650         
+S5_G_R_          96428.950          80381.100         
+S5_G_R_          96429.970          80382.510         
+S5_G_R_          96436.120          80397.300         
+S5_G_R_          96438.200          80402.300         
+S5_G_R_          96449.740          80395.720         
+S5_G_R_          96451.900          80394.490         
+S5_G_R_          96449.770          80390.740         
+S5_G_R_          96443.710          80380.070         
+S5_G_R_          96440.500          80374.410         
+S5_H_R_          96440.500          80374.410         
+S5_H_R_          96438.360          80375.650         
+S5_H_R_          96428.950          80381.100         
+S5_H_R_          96429.970          80382.510         
+S5_H_R_          96436.120          80397.300         
+S5_H_R_          96438.200          80402.300         
+S5_H_R_          96449.740          80395.720         
+S5_H_R_          96451.900          80394.490         
+S5_H_R_          96449.770          80390.740         
+S5_H_R_          96443.710          80380.070         
+S5_H_R_          96440.500          80374.410         
+S5_A_R_          96440.500          80374.410         
+S5_A_R_          96438.360          80375.650         
+S5_A_R_          96428.950          80381.100         
+S5_A_R_          96429.970          80382.510         
+S5_A_R_          96436.120          80397.300         
+S5_A_R_          96438.200          80402.300         
+S5_A_R_          96449.740          80395.720         
+S5_A_R_          96451.900          80394.490         
+S5_A_R_          96449.770          80390.740         
+S5_A_R_          96443.710          80380.070         
+S5_A_R_          96440.500          80374.410         
+S6_G_R_          96474.330          80408.560         
+S6_G_R_          96446.860          80420.360         
+S6_G_R_          96456.350          80437.680         
+S6_G_R_          96480.820          80432.870         
+S6_G_R_          96482.940          80426.470         
+S6_G_R_          96474.330          80408.560         
+S6_H_R_          96474.330          80408.560         
+S6_H_R_          96446.860          80420.360         
+S6_H_R_          96456.350          80437.680         
+S6_H_R_          96480.820          80432.870         
+S6_H_R_          96482.940          80426.470         
+S6_H_R_          96474.330          80408.560         
+S6_A_R_          96474.330          80408.560         
+S6_A_R_          96446.860          80420.360         
+S6_A_R_          96456.350          80437.680         
+S6_A_R_          96480.820          80432.870         
+S6_A_R_          96482.940          80426.470         
+S6_A_R_          96474.330          80408.560         
+S7_G_R_          96453.040          80367.150         
+S7_G_R_          96448.790          80369.610         
+S7_G_R_          96440.500          80374.410         
+S7_G_R_          96443.710          80380.070         
+S7_G_R_          96449.770          80390.740         
+S7_G_R_          96450.060          80390.570         
+S7_G_R_          96460.640          80384.260         
+S7_G_R_          96460.920          80381.780         
+S7_G_R_          96453.040          80367.150         
+S7_H_R_          96453.040          80367.150         
+S7_H_R_          96448.790          80369.610         
+S7_H_R_          96440.500          80374.410         
+S7_H_R_          96443.710          80380.070         
+S7_H_R_          96449.770          80390.740         
+S7_H_R_          96450.060          80390.570         
+S7_H_R_          96460.640          80384.260         
+S7_H_R_          96460.920          80381.780         
+S7_H_R_          96453.040          80367.150         
+S7_A_R_          96453.040          80367.150         
+S7_A_R_          96448.790          80369.610         
+S7_A_R_          96440.500          80374.410         
+S7_A_R_          96443.710          80380.070         
+S7_A_R_          96449.770          80390.740         
+S7_A_R_          96450.060          80390.570         
+S7_A_R_          96460.640          80384.260         
+S7_A_R_          96460.920          80381.780         
+S7_A_R_          96453.040          80367.150         
+S8_G_R_          96464.030          80387.570         
+S8_G_R_          96460.920          80381.780         
+S8_G_R_          96460.640          80384.260         
+S8_G_R_          96450.060          80390.570         
+S8_G_R_          96449.770          80390.740         
+S8_G_R_          96451.900          80394.490         
+S8_G_R_          96464.030          80387.570         
+S8_H_R_          96464.030          80387.570         
+S8_H_R_          96460.920          80381.780         
+S8_H_R_          96460.640          80384.260         
+S8_H_R_          96450.060          80390.570         
+S8_H_R_          96449.770          80390.740         
+S8_H_R_          96451.900          80394.490         
+S8_H_R_          96464.030          80387.570         
+S8_A_R_          96464.030          80387.570         
+S8_A_R_          96460.920          80381.780         
+S8_A_R_          96460.640          80384.260         
+S8_A_R_          96450.060          80390.570         
+S8_A_R_          96449.770          80390.740         
+S8_A_R_          96451.900          80394.490         
+S8_A_R_          96464.030          80387.570         
+S9_G_R_          96464.030          80387.570         
+S9_G_R_          96451.900          80394.490         
+S9_G_R_          96449.740          80395.720         
+S9_G_R_          96438.200          80402.300         
+S9_G_R_          96440.270          80407.270         
+S9_G_R_          96442.120          80411.720         
+S9_G_R_          96446.860          80420.360         
+S9_G_R_          96474.330          80408.560         
+S9_G_R_          96466.080          80391.390         
+S9_G_R_          96464.030          80387.570         
+S9_H_R_          96464.030          80387.570         
+S9_H_R_          96451.900          80394.490         
+S9_H_R_          96449.740          80395.720         
+S9_H_R_          96438.200          80402.300         
+S9_H_R_          96440.270          80407.270         
+S9_H_R_          96442.120          80411.720         
+S9_H_R_          96446.860          80420.360         
+S9_H_R_          96474.330          80408.560         
+S9_H_R_          96466.080          80391.390         
+S9_H_R_          96464.030          80387.570         
+S9_A_R_          96464.030          80387.570         
+S9_A_R_          96451.900          80394.490         
+S9_A_R_          96449.740          80395.720         
+S9_A_R_          96438.200          80402.300         
+S9_A_R_          96440.270          80407.270         
+S9_A_R_          96442.120          80411.720         
+S9_A_R_          96446.860          80420.360         
+S9_A_R_          96474.330          80408.560         
+S9_A_R_          96466.080          80391.390         
+S9_A_R_          96464.030          80387.570         
+V_1              96539.112          80250.270         
+V_1              96544.770          80257.490         
+V_1              96561.530          80284.060         
+V_1              96563.670          80287.440         
+V_1              96572.560          80304.260         
+V_1              96596.904          80350.270         
+V_1              96611.900          80350.270         
+V_1              96611.870          80350.230         
+V_1              96605.710          80341.950         
+V_1              96582.850          80297.970         
+V_1              96573.820          80280.580         
+V_1              96554.016          80250.270         
+V_1              96539.112          80250.270         
+V_10             96523.250          80357.813         
+V_10             96525.400          80362.000         
+V_10             96531.010          80372.920         
+V_10             96531.070          80373.030         
+V_10             96536.100          80382.820         
+V_10             96538.230          80387.290         
+V_10             96541.830          80394.860         
+V_10             96545.430          80402.430         
+V_10             96548.700          80409.300         
+V_10             96546.620          80414.800         
+V_10             96560.840          80411.120         
+V_10             96553.810          80407.970         
+V_10             96540.440          80380.030         
+V_10             96531.080          80362.000         
+V_10             96526.640          80353.440         
+V_10             96524.812          80350.270         
+V_10             96523.250          80350.270         
+V_10             96523.250          80357.813         
+V_11             96523.250          80421.148         
+V_11             96520.630          80421.860         
+V_11             96495.120          80428.700         
+V_11             96480.820          80432.870         
+V_11             96456.350          80437.680         
+V_11             96423.250          80440.743         
+V_11             96423.250          80445.647         
+V_11             96445.530          80443.700         
+V_11             96463.120          80442.240         
+V_11             96477.770          80438.760         
+V_11             96495.400          80433.930         
+V_11             96513.840          80428.870         
+V_11             96515.290          80428.470         
+V_11             96523.250          80426.296         
+V_11             96523.250          80421.148         
+V_12             96623.250          80397.242         
+V_12             96617.780          80388.400         
+V_12             96613.780          80395.150         
+V_12             96608.740          80397.950         
+V_12             96560.840          80411.120         
+V_12             96546.620          80414.800         
+V_12             96523.250          80421.148         
+V_12             96523.250          80426.296         
+V_12             96524.480          80425.960         
+V_12             96529.730          80424.520         
+V_12             96534.970          80423.080         
+V_12             96540.220          80421.640         
+V_12             96545.470          80420.210         
+V_12             96548.080          80419.490         
+V_12             96551.840          80418.480         
+V_12             96557.640          80416.920         
+V_12             96562.960          80415.490         
+V_12             96606.180          80403.880         
+V_12             96609.130          80403.090         
+V_12             96620.700          80402.570         
+V_12             96623.250          80402.310         
+V_12             96623.250          80397.242         
+V_13             96626.820          80403.010         
+V_13             96626.330          80402.220         
+V_13             96623.250          80397.242         
+V_13             96623.250          80402.310         
+V_13             96623.940          80402.240         
+V_13             96626.820          80403.010         
+V_2              96596.904          80350.270         
+V_2              96603.110          80362.000         
+V_2              96605.840          80367.160         
+V_2              96617.780          80388.400         
+V_2              96623.250          80397.242         
+V_2              96623.250          80365.518         
+V_2              96620.631          80362.000         
+V_2              96611.900          80350.270         
+V_2              96596.904          80350.270         
+V_3              96623.250          80397.242         
+V_3              96626.330          80402.220         
+V_3              96626.820          80403.010         
+V_3              96630.160          80406.850         
+V_3              96636.160          80418.270         
+V_3              96638.400          80423.040         
+V_3              96641.600          80426.580         
+V_3              96649.040          80431.520         
+V_3              96662.030          80440.740         
+V_3              96666.090          80444.150         
+V_3              96675.648          80450.270         
+V_3              96696.451          80450.270         
+V_3              96687.450          80445.060         
+V_3              96672.470          80433.870         
+V_3              96656.990          80419.720         
+V_3              96643.460          80403.710         
+V_3              96641.800          80398.200         
+V_3              96633.480          80380.000         
+V_3              96627.390          80371.080         
+V_3              96623.250          80365.518         
+V_3              96623.250          80397.242         
+V_4              96423.250          80303.424         
+V_4              96413.880          80312.750         
+V_4              96419.750          80313.320         
+V_4              96423.250          80318.846         
+V_4              96423.250          80303.424         
+V_5              96424.560          80302.120         
+V_5              96423.250          80303.424         
+V_5              96423.250          80318.846         
+V_5              96429.580          80328.840         
+V_5              96429.930          80328.540         
+V_5              96430.700          80329.830         
+V_5              96441.380          80347.370         
+V_5              96442.350          80348.980         
+V_5              96443.109          80350.270         
+V_5              96449.116          80350.270         
+V_5              96447.010          80346.640         
+V_5              96445.960          80344.930         
+V_5              96438.030          80331.970         
+V_5              96435.180          80327.320         
+V_5              96429.740          80319.130         
+V_5              96423.360          80309.540         
+V_5              96424.560          80302.120         
+V_6              96443.109          80350.270         
+V_6              96450.010          80362.000         
+V_6              96453.040          80367.150         
+V_6              96460.920          80381.780         
+V_6              96464.030          80387.570         
+V_6              96466.080          80391.390         
+V_6              96474.330          80408.560         
+V_6              96482.940          80426.470         
+V_6              96480.820          80432.870         
+V_6              96495.120          80428.700         
+V_6              96488.030          80425.120         
+V_6              96480.470          80409.440         
+V_6              96470.640          80389.010         
+V_6              96468.260          80384.600         
+V_6              96457.520          80364.750         
+V_6              96455.920          80362.000         
+V_6              96449.116          80350.270         
+V_6              96443.109          80350.270         
+V_7              96482.440          80291.080         
+V_7              96491.490          80304.400         
+V_7              96492.920          80306.680         
+V_7              96502.430          80321.860         
+V_7              96507.310          80330.120         
+V_7              96512.530          80339.130         
+V_7              96518.991          80350.270         
+V_7              96523.250          80350.270         
+V_7              96523.250          80347.561         
+V_7              96516.820          80336.410         
+V_7              96511.680          80327.500         
+V_7              96504.990          80316.680         
+V_7              96505.420          80316.430         
+V_7              96496.260          80301.620         
+V_7              96479.270          80276.700         
+V_7              96466.930          80258.400         
+V_7              96466.902          80258.358         
+V_7              96466.874          80258.316         
+V_7              96466.847          80258.273         
+V_7              96466.821          80258.230         
+V_7              96466.795          80258.187         
+V_7              96466.771          80258.143         
+V_7              96466.747          80258.098         
+V_7              96466.723          80258.054         
+V_7              96466.701          80258.008         
+V_7              96466.679          80257.963         
+V_7              96466.658          80257.917         
+V_7              96466.638          80257.871         
+V_7              96466.619          80257.824         
+V_7              96466.601          80257.777         
+V_7              96466.583          80257.730         
+V_7              96466.566          80257.682         
+V_7              96466.550          80257.634         
+V_7              96466.535          80257.586         
+V_7              96466.520          80257.538         
+V_7              96466.507          80257.489         
+V_7              96466.494          80257.441         
+V_7              96466.482          80257.392         
+V_7              96466.471          80257.342         
+V_7              96466.461          80257.293         
+V_7              96466.451          80257.243         
+V_7              96466.443          80257.194         
+V_7              96466.435          80257.144         
+V_7              96466.428          80257.094         
+V_7              96466.422          80257.044         
+V_7              96466.417          80256.994         
+V_7              96466.413          80256.943         
+V_7              96466.410          80256.893         
+V_7              96466.407          80256.843         
+V_7              96466.405          80256.792         
+V_7              96466.405          80256.742         
+V_7              96466.405          80256.691         
+V_7              96466.406          80256.641         
+V_7              96466.407          80256.590         
+V_7              96466.410          80256.540         
+V_7              96466.414          80256.490         
+V_7              96466.418          80256.440         
+V_7              96466.423          80256.390         
+V_7              96466.429          80256.340         
+V_7              96466.436          80256.290         
+V_7              96466.444          80256.240         
+V_7              96466.452          80256.190         
+V_7              96466.462          80256.141         
+V_7              96466.472          80256.092         
+V_7              96466.483          80256.042         
+V_7              96466.495          80255.994         
+V_7              96466.508          80255.945         
+V_7              96466.522          80255.896         
+V_7              96466.536          80255.848         
+V_7              96466.552          80255.800         
+V_7              96466.568          80255.752         
+V_7              96466.585          80255.705         
+V_7              96466.602          80255.658         
+V_7              96466.621          80255.611         
+V_7              96466.640          80255.565         
+V_7              96466.660          80255.518         
+V_7              96466.681          80255.473         
+V_7              96466.703          80255.427         
+V_7              96466.725          80255.382         
+V_7              96466.749          80255.337         
+V_7              96466.773          80255.293         
+V_7              96466.797          80255.249         
+V_7              96466.823          80255.206         
+V_7              96466.849          80255.163         
+V_7              96466.876          80255.120         
+V_7              96466.904          80255.078         
+V_7              96466.932          80255.037         
+V_7              96466.961          80254.996         
+V_7              96466.991          80254.955         
+V_7              96467.021          80254.915         
+V_7              96467.053          80254.875         
+V_7              96467.084          80254.836         
+V_7              96467.117          80254.798         
+V_7              96467.150          80254.760         
+V_7              96457.810          80263.810         
+V_7              96463.410          80262.940         
+V_7              96471.850          80275.450         
+V_7              96474.760          80279.770         
+V_7              96482.440          80291.080         
+V_8              96518.991          80350.270         
+V_8              96522.360          80356.080         
+V_8              96523.250          80357.813         
+V_8              96523.250          80350.270         
+V_8              96518.991          80350.270         
+V_9              96524.812          80350.270         
+V_9              96523.250          80347.561         
+V_9              96523.250          80350.270         
+V_9              96524.812          80350.270         
+
+[SYMBOLS]
+;;Gage           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+Raingage         96325.502          80318.046         
+
