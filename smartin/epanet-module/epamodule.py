@@ -9,11 +9,11 @@ import datetime
 
 _plat= platform.system()
 if _plat=='Linux':
-  _lib = ctypes.CDLL("./epanet-module/lib/libepanet2_amd64.so")
+  _lib = ctypes.CDLL("./epanet-module/lib/libepanet2.so.2")
 elif _plat=='Windows':
   try:
     # if epanet2.dll compiled with __cdecl (as in OpenWaterAnalytics)
-    _lib = ctypes.CDLL(".\\epanet-module\\lib\\epanet2_amd64.dll")
+    _lib = ctypes.CDLL(".\\epanet-module\\lib\\epanet2.dll")
     _lib.ENgetversion(ctypes.byref(ctypes.c_int()))
   except ValueError:
      # if epanet2.dll compiled with __stdcall (as in EPA original DLL)
@@ -97,6 +97,38 @@ def ENgetnodeid(index):
     ierr= _lib.ENgetnodeid(index, ctypes.byref(label))
     if ierr!=0: raise ENtoolkitError(ierr)
     return label.value
+
+def ENsettitle(line1,line2,line3):
+	"""Set inp file title
+	
+	Arguments:
+	line1: line 1 of 3 inp title lines
+	line2: line 2 of 3 inp title lines
+	line3: line 3 of 3 inp title lines"""
+	ierr = _lib.ENsettitle(ctypes.c_char_p(line1.encode()),
+			       ctypes.c_char_p(line2.encode()),
+			       ctypes.c_char_p(line3.encode()))
+	if ierr!=0: raise ENtoolkitError(ierr)
+
+
+def ENsetflowunits(units_code):
+	"""Set flow units
+	
+	Arguments:
+	units_code:	int code for unit type: 
+		EN_CFS	0	cubic feet per second
+		EN_GPM	1	gallons per minute
+		EN_MGD	2	million gallons per day
+		EN_IMGD	3	Imperial mgd
+		EN_AFD	4	acre-feet per day
+		EN_LPS	5	liters per second
+		EN_LPM	6	liters per minute
+		EN_MLD	7	million liters per day
+		EN_CMH	8	cubic meters per hour
+		EN_CMD	9	cubic meters per day
+	"""
+	ierr = _lib.ENsetflowunits(ctypes.c_int(units_code))
+	if ierr != 0: raise ENtoolkitError(ierr)
 
 
 def ENgetnodetype(index):
@@ -309,7 +341,7 @@ def ENgettimeparam(paramcode):
     if ierr!=0: raise ENtoolkitError(ierr)
     return j.value
     
-def  ENgetqualtype(qualcode):
+def  ENgetqualtype():
     """Retrieves the type of water quality analysis called for
     returns  qualcode: Water quality analysis codes are as follows:
                        EN_NONE	0 No quality analysis
@@ -329,7 +361,7 @@ def  ENgetqualtype(qualcode):
 
 
 #-------Retrieving other network information--------
-def ENgetcontrol(cindex, ctype, lindex, setting, nindex, level ):
+def ENgetcontrol(cindex):
     """Retrieves the parameters of a simple control statement.
     Arguments:
        cindex:  control statement index
@@ -343,10 +375,17 @@ def ENgetcontrol(cindex, ctype, lindex, setting, nindex, level ):
        level:   value of controlling water level or pressure for level controls 
                 or of time of control action (in seconds) for time-based controls"""
     #int ENgetcontrol(int cindex, int* ctype, int* lindex, float* setting, int* nindex, float* level )
-    ierr= _lib.ENgetcontrol(ctypes.c_int(cindex), ctypes.c_int(ctype), 
-                            ctypes.c_int(lindex), ctypes.c_float(setting), 
-                            ctypes.c_int(nindex), ctypes.c_float(level) )
+    ctype = ctypes.c_int()
+    lindex = ctypes.c_int()
+    setting = ctypes.c_float()
+    nindex = ctypes.c_int()
+    level = ctypes.c_float()
+
+    ierr= _lib.ENgetcontrol(ctypes.c_int(cindex), ctypes.byref(ctype),
+                            ctypes.byref(lindex), ctypes.byref(setting),
+                            ctypes.byref(nindex), ctypes.byref(level) )
     if ierr!=0: raise ENtoolkitError(ierr)
+    return ctype.value, lindex.value, setting.value, nindex.value, level.value
 
 
 def ENgetoption(optioncode):
@@ -358,7 +397,7 @@ def ENgetoption(optioncode):
                 EN_TOLERANCE 
                 EN_EMITEXPON 
                 EN_DEMANDMULT""" 
-    j= ctypes.c_int()
+    j= ctypes.c_float()
     ierr= _lib.ENgetoption(optioncode, ctypes.byref(j))
     if ierr!=0: raise ENtoolkitError(ierr)
     return j.value
@@ -560,7 +599,7 @@ def ENsolveH():
 def ENopenH(): 
     """Opens the hydraulics analysis system"""
     ierr= _lib.ENopenH()
-    if ierr!=0: raise ENtoolkitError(ierr)
+    if ierr != 0: raise ENtoolkitError(ierr)
 
 
 def ENinitH(flag=None):
@@ -581,6 +620,7 @@ def ENrunH():
       raise ENtoolkitError(ierr)
     elif ierr>0:
       return ENgeterror(ierr)
+
 
 def ENsimtime():
     """retrieves the current simulation time t as datetime.timedelta instance"""
@@ -613,8 +653,6 @@ def ENsolveQ():
 def ENopenQ():
     """Opens the water quality analysis system"""
     ierr= _lib.ENopenQ()
-    if ierr!=0: raise ENtoolkitError(ierr)
-    
 
 
 def ENinitQ(flag=None):
