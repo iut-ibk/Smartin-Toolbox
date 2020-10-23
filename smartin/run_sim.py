@@ -18,8 +18,8 @@ penetration = 0.05 #penetration rate for micro storage in decimal
 control = 'smart' #type of control (uncontrolled or smart)
 variation = 1 #number needed for variation
 
-swmm_file = 'ds.inp' #name of SWMM5 input file
-epanet_file = 'ws.inp' #name of EPANET2 input file
+swmm_file = 'udn.inp' #name of SWMM5 input file
+epanet_file = 'wdn.inp' #name of EPANET2 input file
 irrigation_start = (6,2) #start date irrigation (or start date simulation for short-term simulations)
 irrigation_end = (6,27) #end date irrigation (or end date simulation for short-term simulations)
 classification = '_R_'
