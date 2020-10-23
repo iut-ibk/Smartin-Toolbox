@@ -9,11 +9,11 @@ import datetime
 
 _plat= platform.system()
 if _plat=='Linux':
-  _lib = ctypes.CDLL("./epanet-module/lib/libepanet2.so.2")
+  _lib = ctypes.CDLL("../epanet-module/lib/libepanet2.so.2")
 elif _plat=='Windows':
   try:
     # if epanet2.dll compiled with __cdecl (as in OpenWaterAnalytics)
-    _lib = ctypes.CDLL(".\\epanet-module\\lib\\epanet2.dll")
+    _lib = ctypes.CDLL("..\\epanet-module\\lib\\epanet2.dll")
     _lib.ENgetversion(ctypes.byref(ctypes.c_int()))
   except ValueError:
      # if epanet2.dll compiled with __stdcall (as in EPA original DLL)

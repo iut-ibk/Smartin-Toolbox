@@ -4,11 +4,11 @@ import datetime as dt
 import json
 import os
 
-import sys
-if os.name =='nt':
-    sys.path = ['.\\pyswmm'] + sys.path
-else:
-    sys.path = ['./pyswmm'] + sys.path
+# import sys
+# if os.name =='nt':
+#     sys.path = ['.\\pyswmm'] + sys.path
+# else:
+#     sys.path = ['./pyswmm'] + sys.path
 
 import pyswmm
 

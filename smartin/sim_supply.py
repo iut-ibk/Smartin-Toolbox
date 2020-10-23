@@ -7,9 +7,9 @@ import copy
 
 import sys
 if os.name =='nt':
-    sys.path = ['.\\epanet-module'] + sys.path
+    sys.path = ['..\epanet-module'] + sys.path
 else:
-    sys.path = ['./epanet-module'] + sys.path
+    sys.path = ['../epanet-module'] + sys.path
 
 import epamodule as en
 
