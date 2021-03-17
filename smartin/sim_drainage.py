@@ -4,12 +4,6 @@ import datetime as dt
 import json
 import os
 
-# import sys
-# if os.name =='nt':
-#     sys.path = ['.\\pyswmm'] + sys.path
-# else:
-#     sys.path = ['./pyswmm'] + sys.path
-
 import pyswmm
 
 import implement_LIDs
@@ -203,7 +197,7 @@ def simulation_drainage(year, weatherforecast_kind, weatherforecast_accumulation
                     if RainBarrel.water_balance.drain_flow >= RainBarrel_irrigation_goal or RainBarrel_storage < 0.001: #either irrigation demand or minimum water level reached
                         irrigation_on = False #stop irrigation process
                         RainBarrel_control.drain.coefficient = 0 #close valve - set drainage coefficient = 0
-                        RainBarrel.drain_node = '-1' #set outflow node
+                        RainBarrel.drain_node = -1 #set outflow node
                 if not irrigation_on and rain_on: #control rules for rainfall lower than rain barrel volume
                     future_rain_storage = (max(future_rain_sum - (system_stats.runoff_stats['rainfall']-previous_rain_sum),0))/1000*House_area*10000 #calcute actuell rain storage volume
                     if future_rain_storage < RainBarrel_available_storage: #if enough volume is available
