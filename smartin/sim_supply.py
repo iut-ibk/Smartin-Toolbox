@@ -17,13 +17,76 @@ import read_write_swmm
 import modify_epanet_input
 import calculate_daily_demand_spring
 
-def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, number_simulation, original_epanet_file, original_swmm_file, irrigation_start, irrigation_end):
+def simulation_supply(file_name, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, error_forecast, transmission_type, background_packages, irrigation_failure, number_RB, number_simulation):
+
+    #set simulation time
+    start_date = pd.to_datetime('02.06.2015 00:00:00', format='%d.%m.%Y %H:%M:%S')
+    end_date = pd.to_datetime('28.06.2015 23:59:59', format='%d.%m.%Y %H:%M:%S')
+    if start_date.year != end_date.year:
+        print('start and end date has to be in the same year')
+        sys.exit(1)
+    elif start_date > end_date:
+        print('start date has to be lower than end date ')
+        sys.exit(1)
+
+    year = start_date.year #get year of simulation for rain simulation
+
+    #control input plausibility
+    # file_name = sys.argv[1] #define file name for different rain events
+    # weatherforecast_kind = sys.argv[2] #perfect or real
+    # weatherforecast_accumulationtime = int(sys.argv[3]) #period of weather forecast
+    # penetration_rate = float(sys.argv[4]) #penetration rate of SRBs
+    # control_type = sys.argv[5] #control type
+
+    control_groups = 1
+    control_depth = 2.75
+    groups = smart = model_predictive_control = False
+
+    if control_type == 'uncontrolled':
+        RTC = False
+    elif control_type == 'RTC_all':
+        RTC = smart = True
+    elif control_type == 'RTC_group':
+        RTC = smart = groups = True
+        control_groups = 4
+    elif control_type == 'RTC_depth':
+        RTC = smart = True
+        control_depth = 1.0
+    elif control_type == 'model_prodectic_control':
+        RTC = model_predictive_control = True
+    else:
+        print('usage control type: "uncontrolled", "RTC_all", "RTC_group", "RTC_depth" or "model_prodectic_control"')
+        sys.exit(1)
+
+    # error_forecast = float(sys.argv[6])
+    if error_forecast < -1 or error_forecast > 1:
+        print('usage error forecast: reduction and increase between -1 and 1 for no error')
+        sys.exit(1)
+
+    # transmission_type = sys.argv[7]
+    if transmission_type == 'perfect' or transmission_type == 'average' or transmission_type == 'SF7' or transmission_type == 'SF8' or transmission_type == 'SF9' or transmission_type == 'SF10' or transmission_type == 'SF11' or transmission_type == 'SF12':
+        pass
+    else:
+        print('usage transmission type: perfect (=without package losses) or average, SF7, SF8, SF9, SF10, SF11 or SF12 for LoRaWAN transmission')
+        sys.exit(1)
+    # background_packages = int(sys.argv[8])
+    if background_packages > 1000:
+        print('usage number between 0 and 1000 in hundred-steps')
+
+    # irrigation_failure = float(sys.argv[9])
+    # number_RB = int(sys.argv[10]) #define numbers of SRBs per subcatchment
+    # number_simulation = int(sys.argv[11]) #define number of simulation for randomly implemented SRBs
+
+    #input variables file
+    original_epanet_file = 'wdn.inp'
+    original_swmm_file = 'udn.inp'
 
     #created file names
-    name = original_epanet_file[:-4] + '_{}_{}_{}_{}_{}_{}'.format(year, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, number_simulation)
+    name = original_epanet_file[:-4] + '_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}'.format(file_name, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, control_groups, error_forecast, transmission_type, background_packages, irrigation_failure, number_RB, number_simulation)
     epanet_file = name + '.inp'
     epanet_report_file = name + '.rpt'
-    json_file_drainage = original_swmm_file[:-4] + '_{}_{}_{}_{}_{}_{}.json'.format(year, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, number_simulation)
+    epanet_bin_file = name + '.bin'
+    json_file_drainage = original_swmm_file[:-4] + '_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}.json'.format(file_name, weatherforecast_kind, weatherforecast_accumulationtime, penetration_rate, control_type, control_groups, error_forecast, transmission_type, background_packages, irrigation_failure, number_RB, number_simulation)
     json_file = name + '.json'
 
     #read in results from urban drainage simulation
@@ -50,9 +113,10 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
     daily_weather.set_index('Date', inplace=True)
 
     #set irrigation period
-    start_irrigation = pd.to_datetime('{}.{}.{}'.format(irrigation_start[1], irrigation_start[0], year), format='%d.%m.%Y')
-    end_irrigation = pd.to_datetime('{}.{}.{}'.format(irrigation_end[1], irrigation_end[0], year), format='%d.%m.%Y') + pd.Timedelta(hours = 23)
-
+    start_irrigation = pd.to_datetime('0206{}'.format(year), format='%d%m%Y')
+    end_irrigation = pd.to_datetime('2806{}'.format(year), format='%d%m%Y') + pd.Timedelta(hours = 23)
+    #start_irrigation = pd.to_datetime('0408{}'.format(year), format='%d%m%Y')
+    #end_irrigation = pd.to_datetime('0908{}'.format(year), format='%d%m%Y') + pd.Timedelta(hours = 23)
     duration = end_irrigation - start_irrigation
     hours = int(duration.days * 24 + (duration.seconds/3600))
 
@@ -138,6 +202,8 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
 
     #get Demand pattern index
     demand = en.ENgetpatternindex(demand_pattern_name)
+    sum_demand_factor = 0
+    sum_irrigation_factor = 0
 
     #create dictonaries for results
     number_nodes = en.ENgetcount(en.EN_NODECOUNT)
@@ -150,27 +216,29 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
     pressure_nodes = copy.deepcopy(water_age)
     pressure_nodes_peak = copy.deepcopy(water_age)
 
-    day = 0
-    total_demand = 0
-
     while t < end_irrigation: #important that t is as long as duration to read hydraulic results file
         en.ENrunH() #run time step
         timedelta = en.ENsimtime() #get current simulation time
+        #timedelta = en._current_simulation_time.value
         t = start_irrigation + pd.Timedelta(days = timedelta.days, seconds = timedelta.seconds) #combine it with real date
 
-        if t.hour == 23 and t.minute == 0 and t < end_irrigation: #check if new day, 23 because changes will be updated next time step at 0:00
+        if t.hour == 23 and t.minute == 0 and t.day < end_irrigation.day: #check if new day, 23 because changes will be updated next time step at 0:00
             date = t + pd.Timedelta(seconds = 3600) #to get beginning of day
             month_name = date.month_name() #get month name
+            print(date)
 
             #get daily demand factors
             month_factor_demand = month_demand[month_name] #get monthly factor
             daily_factor_demand, daily_factor_irrigation = calculate_daily_demand_spring.calculate_demand(daily_weather.loc[date,'Tmean'], daily_weather.loc[date,'Rain']) #calculate daily demand factor based on temperature
             demand_factor = month_factor_demand * daily_factor_demand #calculate demand factor for changing pattern
             irrigation_factor = month_factor_demand * daily_factor_irrigation #calculate irrigation factor for changing pattern
+            sum_demand_factor += demand_factor
+            sum_irrigation_factor += irrigation_factor
+
 
             #get daily source factors
             month_factor_source = month_source[month_name] #get monthly factor
-            daily_factor_source = calculate_daily_demand_spring.calculate_spring(daily_weather.loc[date,'Tmean'],daily_weather.loc[date,'Rain']) #calculate daily source factor based on temperature
+            daily_factor_source = calculate_daily_demand_spring.calculate_spring(daily_weather.loc[date,'Tmean'], daily_weather.loc[date,'Rain']) #calculate daily source factor based on temperature
             source_factor = month_factor_source * daily_factor_source #calculate month factor for changing base source
 
             #set daily demand pattern
@@ -181,6 +249,10 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
             #set daily water source pouring
             daily_source_abstraction = source_factor * water_source_abstraction #change -demand
             en.ENsetnodevalue(water_source, 1, daily_source_abstraction) #set demand
+
+            # #reset rain barrel patterns - necessary for multiple rain barrels at one node
+            # for house, (pattern_rainbarrel_id) in rainbarrel_control_parameters.items():
+            #     en.ENsetpattern(pattern_rainbarrel_id, rainbarrel_pattern)
 
             #reset demand patterns for node with rain barrel - necessary for multiple rain barrels at one node
             for key, (pattern_node_id, node_id) in node_with_rainbarrel.items():
@@ -194,7 +266,8 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
 
                 #set filling time rain barrel
                 pattern_time = 23
-               
+                #pattern_time = random.sample(filling_time_rain_barrel,1)[0] #for random filling time        
+                
                 #get base demand for node
                 base_demand = en.ENgetnodevalue(node_id,en.EN_BASEDEMAND) 
 
@@ -203,27 +276,27 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
                 actual_pattern_value_peak = en.ENgetpatternvalue(pattern_node_id, peak_demand_hour+1)
 
                 #set filling of rain barrel
-                water_abstraction_filling = actual_pattern_value_filling * base_demand
-                water_abstraction_filling_new = water_abstraction_filling + water_demand / (60*60) * 1000 #calculate l/s
-                water_abstraction_filling_new_pattern = water_abstraction_filling_new / base_demand
-                en.ENsetpatternvalue(pattern_node_id, pattern_time, water_abstraction_filling_new_pattern) #change pattern
+                if control_type != 'uncontrolled':
+                    water_abstraction_filling = actual_pattern_value_filling * base_demand
+                    water_abstraction_filling_new = water_abstraction_filling + water_demand / (60*60) * 1000 #calculate l/s
+                    water_abstraction_filling_new_pattern = water_abstraction_filling_new / base_demand
+                    en.ENsetpatternvalue(pattern_node_id, pattern_time, water_abstraction_filling_new_pattern) #change pattern
 
                 #set reduction at peak hour
                 water_abstraction_peak = actual_pattern_value_peak * base_demand * 3600
                 water_abstraction_peak_without = daily_demand_pattern[peak_demand_hour] * base_demand * 3600
 
                 water_abstraction_irrigation_total = sum([i*base_demand for i in daily_demand_pattern]) * 3600 * irrigation_factor
-                water_reduction_irrigation_poss = (water_demand + water_harvested) * 1000 #calculate l/s
+                if control_type == 'uncontrolled':
+                    water_reduction_irrigation_poss = (water_harvested) * 1000
+                else:    
+                    water_reduction_irrigation_poss = (water_demand + water_harvested) * 1000 #calculate l/s
                 water_reduction_irrigation = min(water_reduction_irrigation_poss, 0.4*water_abstraction_irrigation_total)
 
                 water_reduction_total = max(water_abstraction_peak - water_reduction_irrigation, water_abstraction_peak_without * 0.6) / 3600
 
                 water_redcution_new_pattern = water_reduction_total / base_demand
                 en.ENsetpatternvalue(pattern_node_id, peak_demand_hour+1, water_redcution_new_pattern) #change pattern
-
-                if day == 0:
-                    total_demand += base_demand
-                    day += 1
 
         #get pressure results at peak demand (17h -> reducing irrigation demand)
         if t.hour == 17:
@@ -236,6 +309,9 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
             for index in range(1, number_nodes+1):
                 key = en.ENgetnodeid(index).decode('utf-8') #get key (nodeid)
                 pressure_nodes[key].update({str(t): en.ENgetnodevalue(index, en.EN_PRESSURE)}) #get pressure for node
+
+        #print(t)
+        #print(en.ENgetnodevalue(105,en.EN_DEMAND))
 
         en.ENnextH() #next time step
 
@@ -257,6 +333,8 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
                 key = en.ENgetnodeid(index).decode('utf-8') #get key (nodeid)
                 water_age[key].update({str(t): en.ENgetnodevalue(index, en.EN_QUALITY)}) #get pressure for node
 
+        #print(t)
+        #print(en.ENgetnodevalue(105, en.EN_QUALITY))
         en.ENstepQ() #next quality time step
 
     en.ENcloseQ() #close quality solver
@@ -267,9 +345,9 @@ def simulation_supply(year, weatherforecast_kind, weatherforecast_accumulationti
     total_water_results['pressure_peak'] = [pressure_nodes_peak]
     total_water_results['water_age'] = [water_age]
 
-    results_json = json.dumps(total_water_results)
+    json_write = json.dumps(total_water_results)
     f = open('results/{}'.format(json_file),"w")
-    f.write(results_json)
+    f.write(json_write)
     f.close()
 
     os.remove(epanet_report_file) #delete report file

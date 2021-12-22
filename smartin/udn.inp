@@ -24,6 +24,7 @@ REPORT_STEP          00:00:30
 WET_STEP             00:00:30
 DRY_STEP             00:01:00
 ROUTING_STEP         0:00:30 
+RULE_STEP            00:00:00
 
 INERTIAL_DAMPING     PARTIAL
 NORMAL_FLOW_LIMITED  BOTH
@@ -354,7 +355,7 @@ V_8              0.013      0.15       1.9        5          0          OUTLET
 V_9              0.013      0.15       1.9        5          0          OUTLET    
 
 [INFILTRATION]
-;;Subcatchment   MaxRate    MinRate    Decay      DryTime    MaxInfil  
+;;Subcatchment   Param1     Param2     Param3     Param4     Param5    
 ;;-------------- ---------- ---------- ---------- ---------- ----------
 S1_G_R_          70         7          4          7          0         
 S1_H_R_          70         7          4          7          0         
@@ -574,8 +575,8 @@ C8               I24              treatment_plant  20.771     0.01       0      
 C9               I7               I3               23.89      0.02       0          0          0          0         
 
 [WEIRS]
-;;Name           From Node        To Node          Type         CrestHt    Qcoeff     Gated    EndCon   EndCoeff   Surcharge  RoadWidth  RoadSurf  
-;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- -------- ---------- ---------- ---------- ----------
+;;Name           From Node        To Node          Type         CrestHt    Qcoeff     Gated    EndCon   EndCoeff   Surcharge  RoadWidth  RoadSurf   Coeff. Curve
+;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- -------- ---------- ---------- ---------- ---------- ----------------
 W1               CSO_building     CSO              SIDEFLOW     2.3        1.5        YES      0        0          YES       
 
 [XSECTIONS]
@@ -606,6 +607,15 @@ C7               CIRCULAR     0.25             0          0          0          
 C8               CIRCULAR     0.25             0          0          0          1                    
 C9               CIRCULAR     0.25             0          0          0          1                    
 W1               RECT_OPEN    1                3          0          0         
+
+[POLLUTANTS]
+;;Name           Units  Crain      Cgw        Crdii      Kdecay     SnowOnly   Co-Pollutant     Co-Frac    Cdwf       Cinit     
+;;-------------- ------ ---------- ---------- ---------- ---------- ---------- ---------------- ---------- ---------- ----------
+Tracer           MG/L   0.0        0.0        0.0        0.0        NO         *                0.0        1          0.0       
+
+[LOADINGS]
+;;Subcatchment   Pollutant        Buildup   
+;;-------------- ---------------- ----------
 
 [DWF]
 ;;Node           Constituent      Baseline   Patterns  
@@ -647,8 +657,6 @@ TW_C3_R_eekend              0.99  0.92  0.94  1.12  1.03  1.06
 
 [REPORT]
 ;;Reporting Options
-INPUT      NO
-CONTROLS   NO
 SUBCATCHMENTS NONE
 NODES CSO_building CSO
 LINKS NONE

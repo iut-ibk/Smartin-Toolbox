@@ -10,6 +10,11 @@ def read_in_weather_forecast(path):
 
     return weatherforecast
 
+def read_in_error_weather_forecast(path):
+    weatherforecast = pd.read_csv(path, sep=';', header=0, index_col=[0])
+    rain_limits = list(weatherforecast.columns)
+
+    return rain_limits, weatherforecast
 
 def read_in_swmm_file(path):
     Timestamp = []

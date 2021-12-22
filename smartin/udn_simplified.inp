@@ -1,0 +1,194 @@
+[TITLE]
+;;Project Title/Notes
+
+[OPTIONS]
+;;Option             Value
+FLOW_UNITS           LPS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+ALLOW_PONDING        NO
+SKIP_STEADY_STATE    YES
+
+START_DATE           05/31/2015
+START_TIME           23:59:00
+REPORT_START_DATE    05/31/2015
+REPORT_START_TIME    23:59:00
+END_DATE             07/01/2015
+END_TIME             00:00:00
+SWEEP_START          01/01
+SWEEP_END            12/31
+DRY_DAYS             0
+REPORT_STEP          00:00:30
+WET_STEP             00:00:30
+DRY_STEP             00:01:00
+ROUTING_STEP         30
+RULE_STEP            00:00:00
+
+INERTIAL_DAMPING     PARTIAL
+NORMAL_FLOW_LIMITED  BOTH
+FORCE_MAIN_EQUATION  D-W
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         1.14
+MAX_TRIALS           8
+HEAD_TOLERANCE       0.0015
+SYS_FLOW_TOL         5
+LAT_FLOW_TOL         5
+MINIMUM_STEP         0.5
+THREADS              4
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]
+;;Name           Format    Interval SCF      Source    
+;;-------------- --------- -------- -------- ----------
+Raingage         VOLUME    0:01     1.0      FILE       "C:\Users\Martin\Desktop\smartin\rain2015.dat" STA01      MM   
+
+[SUBCATCHMENTS]
+;;Name           Rain Gage        Outlet           Area     %Imperv  Width    %Slope   CurbLen  SnowPack        
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- -------- ----------------
+Case_study_total Raingage         I1               3.4972   75       175      0.2      0                        
+
+[SUBAREAS]
+;;Subcatchment   N-Imperv   N-Perv     S-Imperv   S-Perv     PctZero    RouteTo    PctRouted 
+;;-------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+Case_study_total 0.006      0.15       0          5          0          OUTLET    
+
+[INFILTRATION]
+;;Subcatchment   Param1     Param2     Param3     Param4     Param5    
+;;-------------- ---------- ---------- ---------- ---------- ----------
+Case_study_total 3          0.5        4          7          0         
+
+[JUNCTIONS]
+;;Name           Elevation  MaxDepth   InitDepth  SurDepth   Aponded   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+I1               153.04     3.51       0          0          0         
+I24              147.5      2.38       0          0          0         
+
+[OUTFALLS]
+;;Name           Elevation  Type       Stage Data       Gated    Route To        
+;;-------------- ---------- ---------- ---------------- -------- ----------------
+CSO              0          FREE                        NO                       
+treatment_plant  145.6      FREE                        NO                       
+
+[STORAGE]
+;;Name           Elev.    MaxDepth   InitDepth  Shape      Curve Name/Params            N/A      Fevap    Psi      Ksat     IMD     
+;;-------------- -------- ---------- ---------- ---------- ---------------------------- -------- --------          -------- --------
+CSO_building     147.66   4.543      0          TABULAR    CSO_Storage                0        0       
+
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+C5               I1               CSO_building     43.616     0.02       0          3          0          0         
+C7               CSO_building     I24              32.017     0.01       0          0          0          2.5       
+C8               I24              treatment_plant  20.771     0.01       0          0          0          0         
+
+[WEIRS]
+;;Name           From Node        To Node          Type         CrestHt    Qcoeff     Gated    EndCon   EndCoeff   Surcharge  RoadWidth  RoadSurf   Coeff. Curve
+;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- -------- ---------- ---------- ---------- ---------- ----------------
+W1               CSO_building     CSO              SIDEFLOW     2.3        1.5        YES      0        0          YES       
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels    Culvert   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ---------- ----------
+C5               CIRCULAR     0.25             0          0          0          1                    
+C7               CIRCULAR     0.25             0          0          0          1                    
+C8               CIRCULAR     0.25             0          0          0          1                    
+W1               RECT_OPEN    1                3          0          0         
+
+[LOSSES]
+;;Link           Kentry     Kexit      Kavg       Flap Gate  Seepage   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+
+[POLLUTANTS]
+;;Name           Units  Crain      Cgw        Crdii      Kdecay     SnowOnly   Co-Pollutant     Co-Frac    Cdwf       Cinit     
+;;-------------- ------ ---------- ---------- ---------- ---------- ---------- ---------------- ---------- ---------- ----------
+Tracer           MG/L   0.0        0.0        0.0        0.0        NO         *                0.0        1          0.0       
+
+[LOADINGS]
+;;Subcatchment   Pollutant        Buildup   
+;;-------------- ---------------- ----------
+
+[CURVES]
+;;Name           Type       X-Value    Y-Value   
+;;-------------- ---------- ---------- ----------
+CSO_Storage      Storage    0          2.5       
+CSO_Storage                 0.2        5         
+CSO_Storage                 3          5         
+
+[PATTERNS]
+;;Name           Type       Multipliers
+;;-------------- ---------- -----------
+TW_C3_R_eek      DAILY      0.999 1.004 0.984 1.004 0.999 1.009 1.001
+;
+TW_C3_R_eekday   HOURLY     0.89  0.85  0.84  0.86  0.89  1.03 
+TW_C3_R_eekday              1.08  1.08  1.06  1.04  1.04  1.04 
+TW_C3_R_eekday              1.03  1.01  1     1     1.02  1.05 
+TW_C3_R_eekday              1.07  1.07  1.05  1.04  1.01  0.944
+;
+TW_C3_R_eekend   WEEKEND    0.94  1.01  1.08  1.09  1.13  1.18 
+TW_C3_R_eekend              1.26  1.17  0.86  0.05  0.75  0.86 
+TW_C3_R_eekend              0.92  1.02  1.16  1.19  1.13  1.14 
+TW_C3_R_eekend              0.99  0.92  0.94  1.12  1.03  1.06 
+
+[REPORT]
+;;Reporting Options
+INPUT      NO
+CONTROLS   NO
+SUBCATCHMENTS NONE
+NODES CSO_building CSO
+LINKS NONE
+
+[TAGS]
+
+[MAP]
+DIMENSIONS       96377.0684       80199.5838       96772.8836       80499.1402      
+UNITS            Meters
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+I1               96672.13           80436.6           
+I24              96738.008          80473.426         
+CSO              96728.146          80453.41          
+treatment_plant  96754.892          80485.524         
+CSO_building     96708.954          80459.974         
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+
+[POLYGONS]
+;;Subcatchment   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+Case_study_total 96675.648          80450.27          
+Case_study_total 96696.451          80450.27          
+Case_study_total 96643.46           80403.71          
+Case_study_total 96605.71           80341.95          
+Case_study_total 96554.016          80250.27          
+Case_study_total 96539.112          80250.27          
+Case_study_total 96508.35           80213.2           
+Case_study_total 96424.56           80302.12          
+Case_study_total 96395.06           80333.26          
+Case_study_total 96456.35           80437.68          
+Case_study_total 96423.25           80440.743         
+Case_study_total 96423.25           80445.647         
+Case_study_total 96463.12           80442.24          
+Case_study_total 96474.77           80444.13          
+Case_study_total 96484.33           80466.24          
+Case_study_total 96569.27           80444.21          
+Case_study_total 96562.96           80415.49          
+Case_study_total 96623.94           80402.24          
+Case_study_total 96641.6            80426.58          
+Case_study_total 96675.648          80450.27          
+
+[SYMBOLS]
+;;Gage           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+Raingage         96325.502        80318.046       
